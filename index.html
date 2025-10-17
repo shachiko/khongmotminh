@@ -468,7 +468,7 @@
         }
 
         async function saveDataToGoogleSheets(name, email, week, score) {
-            const scriptURL = 'THAY_THẾ_BẰNG_URL_CỦA_THẦY';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbziOt9OPA8EZwpcXUhNECyc3Z98jtIbQr2m0PBcBGcNjhBBXPPx5hwsSqLfavwivb5n-g/exec';
             const formData = new FormData();
             formData.append('name', name);
             formData.append('email', email);
@@ -477,7 +477,7 @@
 
             try {
                  console.log('Đang gửi dữ liệu:', { name, email, week, score });
-                // await fetch(scriptURL, { method: 'POST', body: formData });
+                await fetch(scriptURL, { method: 'POST', body: formData });
                 console.log('Gửi dữ liệu thành công (mô phỏng)');
             } catch (error) {
                 console.error('Lỗi khi gửi dữ liệu:', error.message);
@@ -551,4 +551,5 @@
     </script>
 </body>
 </html>
+
 
