@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Không Một Mình – Cùng nhau an toàn trực tuyến</title>
+    <title>Không Một Mình – Cùng nhau chống dụ dỗ bắt cóc online</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,17 +43,15 @@
 
     <div id="app" class="container mx-auto p-4 max-w-4xl flex flex-col flex-grow">
 
-        <!-- Header -->
-        <header class="text-center my-8">
+        <!-- Header --><header class="text-center my-8">
             <img id="logo" src="https://placehold.co/100x100/FFFFFF/00529D?text=Logo" alt="Logo Không Một Mình" class="w-20 h-20 mx-auto mb-4 rounded-full"
                  onerror="this.onerror=null;this.src='https://placehold.co/100x100/FFFFFF/00529D?text=Logo';">
             <h1 class="text-4xl font-bold text-blue-800">Không Một Mình</h1>
-            <p class="text-lg text-blue-600">Cùng nhau an toàn trực tuyến</p>
+            <p class="text-lg text-blue-600">Cùng nhau chống dụ dỗ, bắt cóc online</p>
         </header>
 
         <main id="main-content" class="flex-grow flex items-center justify-center">
-            <!-- Registration View -->
-            <div id="registration-view" class="bg-white p-8 rounded-xl shadow-lg text-center w-full">
+            <!-- Registration View --><div id="registration-view" class="bg-white p-8 rounded-xl shadow-lg text-center w-full">
                  <img id="banner" src="https://placehold.co/800x400/00529D/FFFFFF?text=Chiến+dịch+Không+Một+Mình" alt="Banner Chiến dịch" class="w-full h-64 object-cover rounded-lg mb-6"
                       onerror="this.onerror=null;this.src='https://placehold.co/800x400/00529D/FFFFFF?text=Banner';">
                 <h2 class="text-2xl font-bold mb-4">Tham gia Thử thách Bảo vệ</h2>
@@ -65,42 +63,46 @@
                 </form>
             </div>
 
-            <!-- Quiz View -->
-            <div id="quiz-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
+            <!-- Quiz View --><div id="quiz-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
                 <h2 id="quiz-title" class="text-2xl font-bold mb-2 text-center">Bài kiểm tra Tuần 1</h2>
                 <p id="quiz-description" class="text-center mb-6">Chọn câu trả lời đúng nhất cho các câu hỏi dưới đây.</p>
                 <div id="quiz-container" class="space-y-6">
-                    <!-- Questions will be dynamically inserted here -->
-                </div>
+                    <!-- Questions will be dynamically inserted here --></div>
                 <button id="submit-quiz" class="mt-8 w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400">Nộp bài</button>
             </div>
         </main>
     </div>
 
-    <!-- Footer -->
-    <footer class="text-center py-6 text-sm text-gray-500">
+    <!-- Footer --><footer class="text-center py-6 text-sm text-gray-500">
         <p>&copy; 2025 - Sản phẩm thuộc bản quyền của trường UK ACADEMY HA LONG</p>
     </footer>
 
-    <!-- Result Modal -->
-    <div id="result-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50">
+    <!-- Result Modal --><div id="result-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50">
         <div class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-md w-full relative transform transition-all scale-95 opacity-0" id="result-content">
-            <h2 id="result-title" class="text-3xl font-bold text-yellow-500 mb-4">Chúc mừng!</h2>
-            <div id="cup-container" class="my-4">
-                <svg class="w-32 h-32 mx-auto text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-1.707 1.707A1 1 0 003 15h14a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM8 16a2 2 0 114 0H8z"></path><path fill-rule="evenodd" d="M10 0a1 1 0 011 1v.065a8.002 8.002 0 015.657 5.657A1 1 0 0117 8v3.586l1.707 1.707a1 1 0 01-1.414 1.414L16 13.414V8a6.002 6.002 0 00-5-5.917V1a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            <!-- Normal Result Content --><div id="normal-result-content">
+                <h2 id="result-title" class="text-3xl font-bold text-yellow-500 mb-4">Chúc mừng!</h2>
+                <div id="cup-container" class="my-4">
+                    <svg class="w-32 h-32 mx-auto text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-1.707 1.707A1 1 0 003 15h14a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM8 16a2 2 0 114 0H8z"></path><path fill-rule="evenodd" d="M10 0a1 1 0 011 1v.065a8.002 8.002 0 015.657 5.657A1 1 0 0117 8v3.586l1.707 1.707a1 1 0 01-1.414 1.414L16 13.414V8a6.002 6.002 0 00-5-5.917V1a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                </div>
+                <p id="result-message" class="text-xl font-semibold text-gray-700 my-4">Bạn là người bảo vệ tuyệt vời!</p>
+                <p id="result-score" class="text-lg mb-6">Điểm số của bạn: <strong>100%</strong></p>
+                <div class="flex justify-center space-x-4">
+                    <button id="share-fb" class="bg-blue-800 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Facebook</button>
+                    <button id="share-zalo" class="bg-blue-500 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Zalo</button>
+                </div>
             </div>
-            <p id="result-message" class="text-xl font-semibold text-gray-700 my-4">Bạn là người bảo vệ tuyệt vời!</p>
-            <p id="result-score" class="text-lg mb-6">Điểm số của bạn: <strong>100%</strong></p>
-            <div class="flex justify-center space-x-4">
-                 <button id="share-fb" class="bg-blue-800 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Facebook</button>
-                 <button id="share-zalo" class="bg-blue-500 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Zalo</button>
+
+            <!-- Robot Message Content (Initially hidden) --><div id="robot-message-content" class="hidden mt-6">
+                <img src="robot-uka.png" alt="Robot UKA Hạ Long" class="w-40 h-40 mx-auto mb-4 object-contain">
+                <p class="text-xl font-bold text-blue-700 mb-4">UKA Hạ Long chúc mừng bạn vượt qua thử thách và đạt được huy hiệu tuần “Chiến binh an toàn số”!</p>
+                <button id="continue-btn" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors mt-4">Tiếp tục</button>
             </div>
+            
             <button id="close-modal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
         </div>
     </div>
     
-    <!-- Canvas for fireworks -->
-    <canvas id="fireworks-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-50"></canvas>
+    <!-- Canvas for fireworks --><canvas id="fireworks-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-50"></canvas>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     <script>
@@ -108,16 +110,20 @@
         const quizView = document.getElementById('quiz-view');
         const resultModal = document.getElementById('result-modal');
         const resultContent = document.getElementById('result-content');
+        const normalResultContent = document.getElementById('normal-result-content');
+        const robotMessageContent = document.getElementById('robot-message-content');
         const registrationForm = document.getElementById('registration-form');
         const quizContainer = document.getElementById('quiz-container');
         const submitQuizBtn = document.getElementById('submit-quiz');
         const closeModalBtn = document.getElementById('close-modal');
+        const continueBtn = document.getElementById('continue-btn'); // Nút Tiếp tục của robot
         const fireworksCanvas = document.getElementById('fireworks-canvas');
 
         let studentName = '';
         let studentEmail = '';
         let currentQuiz = {};
         let userAnswers = [];
+        let quizScorePercentage = 0; // Biến lưu điểm phần trăm
 
         // --- DỮ LIỆU BÀI KIỂM TRA (Thầy sẽ tự thay đổi hàng tuần) ---
         const quizzes = {
@@ -236,17 +242,18 @@
             });
 
             const totalQuestions = currentQuiz.questions.length;
-            const percentage = Math.round((score / totalQuestions) * 100);
+            quizScorePercentage = Math.round((score / totalQuestions) * 100); // Cập nhật biến global
             
-            saveDataToGoogleSheets(studentName, studentEmail, "week1", percentage);
+            saveDataToGoogleSheets(studentName, studentEmail, "week1", quizScorePercentage);
 
             // Hiện kết quả sau 1.5 giây để học sinh xem đáp án
             setTimeout(() => {
-                showResult(percentage);
+                showResult(quizScorePercentage);
             }, 1500); 
         }
 
         function showResult(percentage) {
+            quizView.classList.add('hidden');
             resultModal.classList.remove('hidden');
             
             // Animate modal pop-in
@@ -267,10 +274,25 @@
                 messageEl.textContent = "Bạn là người bảo vệ tuyệt vời!";
                 cupContainer.style.display = 'block';
                 triggerFireworks();
+                
+                // Ẩn nội dung bình thường, hiện robot sau 2 giây
+                normalResultContent.classList.remove('block');
+                normalResultContent.classList.add('hidden');
+
+                setTimeout(() => {
+                    robotMessageContent.classList.remove('hidden');
+                    robotMessageContent.classList.add('block');
+                }, 2000); // 2 giây sau khi hiển thị modal kết quả
+                
             } else {
                 titleEl.textContent = "Cố gắng hơn nhé!";
                 messageEl.textContent = "Hãy ôn lại kiến thức và thử lại vào tuần sau!";
                 cupContainer.style.display = 'none';
+
+                // Đảm bảo chỉ hiển thị nội dung bình thường
+                normalResultContent.classList.remove('hidden');
+                normalResultContent.classList.add('block');
+                robotMessageContent.classList.add('hidden');
             }
         }
 
@@ -331,6 +353,11 @@
             currentQuiz = {};
             
             submitQuizBtn.disabled = false;
+
+            // Đảm bảo nội dung bình thường được hiển thị khi reset
+            normalResultContent.classList.remove('hidden');
+            normalResultContent.classList.add('block');
+            robotMessageContent.classList.add('hidden');
         }
 
         // --- EVENT LISTENERS ---
@@ -341,7 +368,14 @@
 
         submitQuizBtn.addEventListener('click', submitQuiz);
 
+        // Nút đóng modal chung
         closeModalBtn.addEventListener('click', () => {
+             resultModal.classList.add('hidden');
+             resetQuiz();
+        });
+
+        // Nút "Tiếp tục" của robot
+        continueBtn.addEventListener('click', () => {
              resultModal.classList.add('hidden');
              resetQuiz();
         });
