@@ -103,7 +103,7 @@
             <!-- Robot Message Content (Initially hidden) --><div id="robot-message-content" class="hidden mt-6">
                 <img src="robot-uka.png" alt="Robot UKA Hạ Long" class="w-40 h-40 mx-auto mb-4 object-contain"
                      onerror="this.onerror=null;this.src='https://placehold.co/150x150/FFFFFF/00529D?text=Robot';">
-                <p class="text-xl font-bold text-blue-700 mb-4">UKA Hạ Long chúc mừng bạn vượt qua thử thách và đạt được huy hiệu tuần “Chiến binh an toàn số”!</p>
+                <p id="robot-congrats-text" class="text-xl font-bold text-blue-700 mb-4">UKA Hạ Long chúc mừng bạn vượt qua thử thách và đạt được huy hiệu tuần “Chiến binh an toàn số”!</p>
                 <div class="flex justify-center space-x-4 mb-4">
                     <button id="share-fb-2" class="bg-blue-800 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Facebook</button>
                     <button id="share-zalo-2" class="bg-blue-500 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Zalo</button>
@@ -423,12 +423,13 @@
             const titleEl = document.getElementById('result-title');
             const messageEl = document.getElementById('result-message');
             const cupContainer = document.getElementById('cup-container');
+            const robotCongratsEl = document.getElementById('robot-congrats-text');
             
             scoreEl.innerHTML = `Điểm trắc nghiệm của bạn: <strong>${percentage}%</strong>`;
 
             if (percentage >= 80) {
                 titleEl.textContent = "Xuất sắc!";
-                messageEl.textContent = "Bạn là người bảo vệ tuyệt vời!";
+                messageEl.textContent = `Chúc mừng ${studentName}! Bạn là người bảo vệ tuyệt vời!`;
                 cupContainer.style.display = 'block';
                 triggerFireworks();
                 
@@ -436,13 +437,14 @@
                 normalResultContent.classList.add('hidden');
 
                 setTimeout(() => {
+                    robotCongratsEl.textContent = `UKA Hạ Long chúc mừng ${studentName} đã vượt qua thử thách và đạt được huy hiệu tuần “Chiến binh an toàn số”!`;
                     robotMessageContent.classList.remove('hidden');
                     robotMessageContent.classList.add('block');
                 }, 2000);
                 
             } else {
                 titleEl.textContent = "Cố gắng hơn nhé!";
-                messageEl.textContent = "Hãy ôn lại kiến thức và thử lại vào tuần sau!";
+                messageEl.textContent = `Hãy ôn lại kiến thức và thử lại vào tuần sau, ${studentName}!`;
                 cupContainer.style.display = 'none';
 
                 normalResultContent.classList.remove('hidden');
@@ -468,7 +470,7 @@
         }
 
         async function saveDataToGoogleSheets(name, email, week, score) {
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbziOt9OPA8EZwpcXUhNECyc3Z98jtIbQr2m0PBcBGcNjhBBXPPx5hwsSqLfavwivb5n-g/exec';
+            const scriptURL = 'THAY_THẾ_BẰNG_URL_CỦA_THẦY';
             const formData = new FormData();
             formData.append('name', name);
             formData.append('email', email);
@@ -477,7 +479,7 @@
 
             try {
                  console.log('Đang gửi dữ liệu:', { name, email, week, score });
-                await fetch(scriptURL, { method: 'POST', body: formData });
+                // await fetch(scriptURL, { method: 'POST', body: formData });
                 console.log('Gửi dữ liệu thành công (mô phỏng)');
             } catch (error) {
                 console.error('Lỗi khi gửi dữ liệu:', error.message);
@@ -551,7 +553,4 @@
     </script>
 </body>
 </html>
-
-
-
 
