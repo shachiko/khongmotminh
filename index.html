@@ -19,6 +19,24 @@
             background-color: #93C5FD; /* Darker blue when selected */
             border-color: #2563EB;
         }
+        /* Style for correct answer */
+        .quiz-option.correct {
+            background-color: #D1FAE5; /* Green-100 */
+            border-color: #059669; /* Green-600 */
+            color: #047857; /* Green-700 */
+            font-weight: bold;
+        }
+        /* Style for incorrect answer */
+        .quiz-option.incorrect {
+            background-color: #FEE2E2; /* Red-100 */
+            border-color: #E11D48; /* Rose-600 */
+            color: #BE123C; /* Rose-700 */
+        }
+        /* Disable clicks after submission */
+        #quiz-container.submitted .quiz-option {
+            pointer-events: none;
+            cursor: default;
+        }
     </style>
 </head>
 <body class="bg-blue-50 text-gray-800 flex flex-col min-h-screen">
@@ -36,7 +54,7 @@
         <main id="main-content" class="flex-grow flex items-center justify-center">
             <!-- Registration View -->
             <div id="registration-view" class="bg-white p-8 rounded-xl shadow-lg text-center w-full">
-                 <img id="banner" src="https://placehold.co/800x400/00529D/FFFFFF?text=Chiến+dịch+Không+Một+Mình" alt="Banner Chiến dịch" class="w-full h-100 object-cover rounded-lg mb-6"
+                 <img id="banner" src="https://placehold.co/800x400/00529D/FFFFFF?text=Chiến+dịch+Không+Một+Mình" alt="Banner Chiến dịch" class="w-full h-64 object-cover rounded-lg mb-6"
                       onerror="this.onerror=null;this.src='https://placehold.co/800x400/00529D/FFFFFF?text=Banner';">
                 <h2 class="text-2xl font-bold mb-4">Tham gia Thử thách Bảo vệ</h2>
                 <p class="mb-6">Hãy điền thông tin để bắt đầu bài kiểm tra hàng tuần và tích luỹ cúp nhé!</p>
@@ -54,7 +72,7 @@
                 <div id="quiz-container" class="space-y-6">
                     <!-- Questions will be dynamically inserted here -->
                 </div>
-                <button id="submit-quiz" class="mt-8 w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">Nộp bài</button>
+                <button id="submit-quiz" class="mt-8 w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400">Nộp bài</button>
             </div>
         </main>
     </div>
@@ -191,24 +209,44 @@
         }
         
         function submitQuiz() {
+            // Vô hiệu hóa nút nộp bài và các lựa chọn
+            submitQuizBtn.disabled = true;
+            quizContainer.classList.add('submitted');
+
             let score = 0;
             currentQuiz.questions.forEach((q, index) => {
-                if (userAnswers[index] === q.answer) {
+                const userAnswer = userAnswers[index];
+                const correctAnswer = q.answer;
+
+                if (userAnswer === correctAnswer) {
                     score++;
                 }
+                
+                // Hiển thị đáp án đúng/sai
+                const optionsForQuestion = document.querySelectorAll(`.quiz-option[data-q-index="${index}"]`);
+                optionsForQuestion.forEach(opt => {
+                    const optionText = opt.dataset.option;
+                    
+                    if (optionText === correctAnswer) {
+                        opt.classList.add('correct'); // Tô màu xanh cho đáp án đúng
+                    } else if (optionText === userAnswer && userAnswer !== correctAnswer) {
+                        opt.classList.add('incorrect'); // Tô màu đỏ cho đáp án sai người dùng chọn
+                    }
+                });
             });
 
             const totalQuestions = currentQuiz.questions.length;
             const percentage = Math.round((score / totalQuestions) * 100);
             
-            // Lưu dữ liệu vào Google Sheets (sẽ được hướng dẫn ở bước sau)
             saveDataToGoogleSheets(studentName, studentEmail, "week1", percentage);
 
-            showResult(percentage);
+            // Hiện kết quả sau 1.5 giây để học sinh xem đáp án
+            setTimeout(() => {
+                showResult(percentage);
+            }, 1500); 
         }
 
         function showResult(percentage) {
-            quizView.classList.add('hidden');
             resultModal.classList.remove('hidden');
             
             // Animate modal pop-in
@@ -265,7 +303,7 @@
 
         async function saveDataToGoogleSheets(name, email, week, score) {
             // URL này sẽ được thay thế bằng URL của thầy từ Google Apps Script
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbziOt9OPA8EZwpcXUhNECyc3Z98jtIbQr2m0PBcBGcNjhBBXPPx5hwsSqLfavwivb5n-g/exec';
+            const scriptURL = 'THAY_THẾ_BẰNG_URL_CỦA_THẦY';
             
             const formData = new FormData();
             formData.append('name', name);
@@ -274,7 +312,6 @@
             formData.append('score', score);
 
             try {
-                // Tạm thời log ra console để kiểm tra
                  console.log('Đang gửi dữ liệu:', { name, email, week, score });
                 // Khi có URL thật, hãy bỏ comment dòng dưới đây
                 // await fetch(scriptURL, { method: 'POST', body: formData });
@@ -284,6 +321,18 @@
             }
         }
         
+        function resetQuiz() {
+            quizView.classList.add('hidden');
+            registrationView.classList.remove('hidden');
+
+            quizContainer.innerHTML = '';
+            quizContainer.classList.remove('submitted');
+            userAnswers = [];
+            currentQuiz = {};
+            
+            submitQuizBtn.disabled = false;
+        }
+
         // --- EVENT LISTENERS ---
         registrationForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -294,7 +343,7 @@
 
         closeModalBtn.addEventListener('click', () => {
              resultModal.classList.add('hidden');
-             registrationView.classList.remove('hidden'); // Quay lại màn hình chính
+             resetQuiz();
         });
 
         document.getElementById('share-fb').addEventListener('click', () => {
@@ -304,20 +353,14 @@
         });
 
         document.getElementById('share-zalo').addEventListener('click', () => {
-            // Zalo share yêu cầu phải đăng ký Zalo App ID, đây là link chia sẻ cơ bản
              const url = window.location.href;
              alert(`Sao chép link này và chia sẻ trên Zalo nhé: ${url}`);
         });
 
-        // Hướng dẫn thay thế logo và banner
-        // Thầy hãy tải 2 file ảnh thầy đã gửi lên cùng thư mục với file index.html này
-        // Sau đó đổi tên file ảnh cho đúng và thay thế các dòng dưới đây:
-        document.getElementById('logo').src = 'logo-tron.png'; // Thay 'logo-tron.png' bằng tên file logo của thầy
-        document.getElementById('banner').src = 'Kmm-01.jpg'; // Thay 'Kmm-01.jpg' bằng tên file banner của thầy
-
+        document.getElementById('logo').src = 'logo-tron.png';
+        document.getElementById('banner').src = 'Kmm-01.jpg';
 
     </script>
 </body>
 </html>
-
 
