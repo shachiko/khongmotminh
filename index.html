@@ -93,8 +93,13 @@
             </div>
 
             <!-- Robot Message Content (Initially hidden) --><div id="robot-message-content" class="hidden mt-6">
-                <img src="robot-uka.png" alt="Robot UKA Hạ Long" class="w-40 h-40 mx-auto mb-4 object-contain">
+                <img src="robot-uka.png" alt="Robot UKA Hạ Long" class="w-40 h-40 mx-auto mb-4 object-contain"
+                     onerror="this.onerror=null;this.src='https://placehold.co/150x150/FFFFFF/00529D?text=Robot';">
                 <p class="text-xl font-bold text-blue-700 mb-4">UKA Hạ Long chúc mừng bạn vượt qua thử thách và đạt được huy hiệu tuần “Chiến binh an toàn số”!</p>
+                <div class="flex justify-center space-x-4 mb-4">
+                    <button id="share-fb-2" class="bg-blue-800 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Facebook</button>
+                    <button id="share-zalo-2" class="bg-blue-500 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Zalo</button>
+                </div>
                 <button id="continue-btn" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors mt-4">Tiếp tục</button>
             </div>
             
@@ -380,22 +385,29 @@
              resetQuiz();
         });
 
-        document.getElementById('share-fb').addEventListener('click', () => {
+        // --- CHỨC NĂNG CHIA SẺ ---
+        const shareOnFacebook = () => {
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('Tôi đã tham gia chiến dịch Không Một Mình để bảo vệ bản thân trên không gian mạng!');
+            const text = encodeURIComponent('Tôi đã đạt danh hiệu "Chiến binh an toàn số" trong chiến dịch Không Một Mình!');
             window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank');
-        });
+        };
 
-        document.getElementById('share-zalo').addEventListener('click', () => {
+        const shareOnZalo = () => {
              const url = window.location.href;
              alert(`Sao chép link này và chia sẻ trên Zalo nhé: ${url}`);
-        });
+        };
 
+        // Gắn sự kiện cho cả 2 bộ nút chia sẻ
+        document.getElementById('share-fb').addEventListener('click', shareOnFacebook);
+        document.getElementById('share-zalo').addEventListener('click', shareOnZalo);
+        document.getElementById('share-fb-2').addEventListener('click', shareOnFacebook);
+        document.getElementById('share-zalo-2').addEventListener('click', shareOnZalo);
+
+        // --- TẢI ẢNH ---
         document.getElementById('logo').src = 'logo-tron.png';
         document.getElementById('banner').src = 'Kmm-01.jpg';
 
     </script>
 </body>
 </html>
-
 
