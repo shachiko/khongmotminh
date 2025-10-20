@@ -479,8 +479,7 @@
 
             try {
                  console.log('Đang gửi dữ liệu:', { name, email, week, score });
-                await fetch(scriptURL, { method: 'POST', body: formData });
-                console.log('Gửi dữ liệu thành công (mô phỏng)');
+                await fetch(scriptURL, { method: 'POST', body: formData });             
             } catch (error) {
                 console.error('Lỗi khi gửi dữ liệu:', error.message);
             }
@@ -553,6 +552,7 @@
     </script>
 </body>
 </html>
+
 
 
 
