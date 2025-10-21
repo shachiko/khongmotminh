@@ -40,7 +40,7 @@
 
     <div id="app" class="container mx-auto p-4 max-w-4xl flex flex-col flex-grow">
 
-        <header class="text-center my-8">
+        <!-- Header --><header class="text-center my-8">
             <img id="logo" src="logo-tron.png" alt="Logo Không Một Mình" class="w-20 h-20 mx-auto mb-4 rounded-full"
                  onerror="this.onerror=null;this.src='https://placehold.co/100x100/FFFFFF/00529D?text=Logo';">
             <h1 class="text-4xl font-bold text-blue-800">Không Một Mình</h1>
@@ -48,7 +48,7 @@
         </header>
 
         <main id="main-content" class="flex-grow flex items-center justify-center">
-            <div id="registration-view" class="bg-white p-8 rounded-xl shadow-lg text-center w-full">
+            <!-- Registration View --><div id="registration-view" class="bg-white p-8 rounded-xl shadow-lg text-center w-full">
                  <img id="banner" src="Kmm-01.jpg" alt="Banner Chiến dịch" class="w-full h-64 object-cover rounded-lg mb-6"
                        onerror="this.onerror=null;this.src='https://placehold.co/800x400/00529D/FFFFFF?text=Banner';">
                 <h2 class="text-2xl font-bold mb-4">Tham gia Thử thách Bảo vệ</h2>
@@ -57,19 +57,19 @@
                     <input type="text" id="student-name" placeholder="Họ và tên của bạn" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     <input type="email" id="student-email" placeholder="Email nhận chứng nhận" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     <input type="text" id="student-class" placeholder="Lớp" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                    <input type="text" id="student-school" placeholder="Trường" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">BẮT ĐẦU TUẦN 1</button>
                 </form>
             </div>
 
-            <div id="theory-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
+            <!-- Theory View --><div id="theory-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
                 <h2 id="theory-title" class="text-2xl font-bold mb-4 text-center">Kiến thức Tuần 1</h2>
                 <div id="theory-content" class="text-left mb-6 space-y-4 max-h-[60vh] overflow-y-auto pr-4">
+                    <!-- Theory content will be dynamically inserted here -->
                 </div>
                 <button id="start-quiz-btn" class="mt-6 w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">Đã hiểu, Bắt đầu làm bài</button>
             </div>
 
-            <div id="quiz-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
+            <!-- Quiz View --><div id="quiz-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
                 <h2 id="quiz-title" class="text-2xl font-bold mb-2 text-center">Bài kiểm tra Tuần 1</h2>
                 <p id="quiz-description" class="text-center mb-6">Chọn câu trả lời đúng nhất.</p>
                 <div id="quiz-container" class="space-y-6"></div>
@@ -78,22 +78,23 @@
         </main>
     </div>
 
-    <footer class="text-center py-6 text-sm text-gray-500">
+    <!-- Footer --><footer class="text-center py-6 text-sm text-gray-500">
         <p>&copy; 2025 - Sản phẩm thuộc bản quyền của trường UK ACADEMY HA LONG</p>
     </footer>
 
-    <div id="result-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50">
+    <!-- Result Modal --><div id="result-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50">
         <div class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-md w-full relative transform transition-all scale-95 opacity-0" id="result-content">
-            <div id="normal-result-content">
+            <!-- Normal Result Content --><div id="normal-result-content">
                 <h2 id="result-title" class="text-3xl font-bold text-yellow-500 mb-4"></h2>
                 <div id="cup-container" class="my-4">
                     <svg class="w-32 h-32 mx-auto text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-1.707 1.707A1 1 0 003 15h14a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM8 16a2 2 0 114 0H8z"></path><path fill-rule="evenodd" d="M10 0a1 1 0 011 1v.065a8.002 8.002 0 015.657 5.657A1 1 0 0117 8v3.586l1.707 1.707a1 1 0 01-1.414 1.414L16 13.414V8a6.002 6.002 0 00-5-5.917V1a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
                 </div>
                 <p id="result-message" class="text-xl font-semibold text-gray-700 my-4"></p>
                 <p id="result-score" class="text-lg mb-6"></p>
+                <button id="continue-btn-fail" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors mt-4">Tiếp tục làm lại</button>
             </div>
 
-            <div id="robot-message-content" class="hidden">
+            <!-- Robot Message Content (Initially hidden) --><div id="robot-message-content" class="hidden">
                 <img src="robot-uka.png" alt="Robot UKA Hạ Long" class="w-40 h-40 mx-auto mb-4 object-contain"
                      onerror="this.onerror=null;this.src='https://placehold.co/150x150/FFFFFF/00529D?text=Robot';">
                 <p id="robot-congrats-text" class="text-xl font-bold text-blue-700 mb-4"></p>
@@ -125,13 +126,14 @@
         const submitQuizBtn = document.getElementById('submit-quiz');
         const closeModalBtn = document.getElementById('close-modal');
         const continueBtn = document.getElementById('continue-btn');
+        const continueBtnFail = document.getElementById('continue-btn-fail');
         const fireworksCanvas = document.getElementById('fireworks-canvas');
         const theoryContent = document.getElementById('theory-content');
         const theoryTitle = document.getElementById('theory-title');
         const startQuizBtn = document.getElementById('start-quiz-btn');
 
         // State
-        let studentInfo = { name: '', email: '', class: '', school: '' };
+        let studentInfo = { name: '', email: '', class: '' };
         let currentQuiz = {};
         let userAnswers = [];
         
@@ -145,11 +147,62 @@
                     <p class="mb-4 bg-blue-100 p-3 rounded-lg">Một buổi chiều, Lan đăng lên mạng tấm ảnh thẻ học sinh mới chụp. Ảnh có tên, trường và mã số học sinh. Vài phút sau, một người lạ nhắn tin: “Chào em, chị là nhân viên học bổng. Em gửi thêm số CCCD để nhận quà nhé!”. Lan vui vẻ làm theo. Chỉ một ngày sau, tài khoản của Lan bị chiếm. Hàng chục bạn bè nhận tin nhắn vay tiền từ “Lan giả”.</p>
                     <p class="font-bold">💭 Theo em, Lan đã mắc sai lầm ở đâu?</p>
                     <h4 class="text-xl font-bold mt-6 mb-3 text-blue-700">1. Vì sao cần bảo vệ bản thân trên mạng?</h4>
-                    <p>Mạng Internet giống như một ngôi nhà rộng lớn, nơi ai cũng có thể ghé thăm. Giữ bí mật thông tin chính là giữ an toàn cho chính mình.</p>
+                    <p>Mạng Internet giống như một ngôi nhà rộng lớn, nơi ai cũng có thể ghé thăm. Nếu ngoài đời em không đưa chìa khóa nhà cho người lạ, thì trên mạng, việc chia sẻ thông tin cá nhân mà không cẩn trọng cũng nguy hiểm y như vậy. Kẻ xấu có thể dùng thông tin đó để lừa đảo, đe dọa hoặc giả mạo em. Giữ bí mật thông tin chính là giữ an toàn cho chính mình.</p>
                     <p class="italic text-blue-600">🌱 Trên mạng, mỗi thông tin nhỏ đều có thể trở thành “dấu vết số”.</p>
                     <h4 class="text-xl font-bold mt-6 mb-3 text-blue-700">2. Thông tin cá nhân là gì?</h4>
-                    <p>🧩 Thông tin cá nhân là những dữ liệu giúp người khác nhận biết hoặc xác định em là ai.</p>
-                    <p class="mt-4 font-bold">Hãy đọc kỹ để sẵn sàng cho thử thách nhé!</p>
+                    <p>🧩 Thông tin cá nhân là những dữ liệu giúp người khác nhận biết hoặc xác định em là ai. Chúng có thể là:</p>
+                    <ul class="list-disc list-inside space-y-1 pl-4">
+                        <li>Họ tên, ngày sinh, địa chỉ, số điện thoại;</li>
+                        <li>Ảnh cá nhân, mã học sinh, tài khoản mạng xã hội;</li>
+                        <li>Email, mật khẩu, vị trí, lịch học.</li>
+                    </ul>
+                    <p class="mt-2 italic text-red-600">📸 Ví dụ: Một bạn đăng ảnh thẻ học sinh có ghi tên và trường. Người lạ có thể dễ dàng tìm ra địa chỉ chỉ bằng vài cú tìm kiếm!</p>
+                    <h4 class="text-xl font-bold mt-6 mb-3 text-blue-700">3. Giữ an toàn cho tài khoản</h4>
+                    <p>🔑 Mật khẩu mạnh là lớp khóa đầu tiên. Một mật khẩu an toàn cần:</p>
+                    <ul class="list-disc list-inside space-y-1 pl-4">
+                        <li>Ít nhất 8 ký tự, gồm chữ hoa – chữ thường – số – ký tự đặc biệt.</li>
+                        <li>Dễ nhớ với em, nhưng khó đoán với người khác.</li>
+                    </ul>
+                    <p class="mt-2">✅ Ví dụ: Uka@2025!, HaLong#9x!</p>
+                    <p>🚫 Tránh: 123456, uka2025, ngày sinh.</p>
+                    <p class="italic text-blue-600">💬 Mẹo nhỏ: Hãy biến một câu quen thuộc thành mật khẩu! “UKA là ngôi trường tuyệt vời” → UkaLaNgT@2025</p>
+                    <p class="mt-4">📱 Xác thực hai lớp (2FA) – lớp khóa thứ hai. Ngay cả khi kẻ xấu biết mật khẩu, họ vẫn không thể vào tài khoản nếu em bật xác thực hai bước. Khi đăng nhập, em sẽ nhận được mã OTP qua điện thoại hoặc email.</p>
+                    <p class="font-bold text-green-700">💡 Hãy bật tính năng “Xác thực hai lớp” trong phần Bảo mật của Zalo, Facebook, TikTok hay Gmail. Đây là “lá chắn kép” cho tài khoản của em!</p>
+                    <h4 class="text-xl font-bold mt-6 mb-3 text-blue-700">4. Cài đặt quyền riêng tư</h4>
+                    <p>Không phải ai cũng nên thấy bài đăng của em.</p>
+                    <ul class="list-disc list-inside space-y-1 pl-4">
+                        <li>Chỉ để bạn bè thật xem bài viết.</li>
+                        <li>Không công khai hình ảnh gia đình hay địa chỉ nhà.</li>
+                        <li>Khi đăng ảnh nhóm, xin phép các bạn trước.</li>
+                    </ul>
+                    <p class="mt-2 italic text-red-600">📍 Ví dụ: Một bạn gắn vị trí “Trường UKA Hạ Long” dưới mỗi bài đăng. → Người lạ có thể biết thời gian học, vị trí lớp học – gây nguy cơ bị theo dõi.</p>
+                    <p class="mt-2 font-bold">🧠 Gợi ý: Trước khi đăng bất kỳ hình ảnh nào, hãy tự hỏi: “Nếu cả thế giới nhìn thấy điều này, mình có thấy thoải mái không?”</p>
+                    <h4 class="text-xl font-bold mt-6 mb-3 text-blue-700">5. Tôn trọng người khác – cũng là bảo vệ chính mình</h4>
+                    <p>Khi sử dụng mạng xã hội, mỗi em không chỉ giữ an toàn cho bản thân mà còn góp phần xây dựng môi trường mạng lành mạnh.</p>
+                    <ul class="list-disc list-inside space-y-1 pl-4">
+                        <li>Không chia sẻ, bình luận ác ý hay tin giả.</li>
+                        <li>Không đăng ảnh bạn bè khi chưa được đồng ý.</li>
+                        <li>Không phát tán nội dung nhạy cảm, dù chỉ “cho vui”.</li>
+                    </ul>
+                    <p class="mt-2 italic text-blue-600">🌼 Hãy là người dùng mạng văn minh, biết tôn trọng quyền riêng tư – vì an toàn trực tuyến là an toàn của cả cộng đồng.</p>
+                    <h4 class="text-xl font-bold mt-6 mb-3 text-green-700">🌈 Em cần ghi nhớ</h4>
+                    <ul class="list-disc list-inside space-y-1 pl-4 font-semibold">
+                        <li>Không chia sẻ thông tin cá nhân tùy tiện.</li>
+                        <li>Sử dụng mật khẩu mạnh và bật xác thực hai lớp.</li>
+                        <li>Cài đặt quyền riêng tư, không gắn vị trí thật.</li>
+                        <li>Tôn trọng quyền riêng tư của người khác.</li>
+                    </ul>
+                    <p class="mt-4 font-bold text-center text-lg">💖 An toàn trên mạng bắt đầu từ chính ý thức của mỗi người. 💖</p>
+                    <p class="mt-4 text-center font-bold text-blue-800 text-lg">💬 Lời nhắn của chiến dịch</p>
+                    <p class="mt-2 text-center font-bold text-blue-800 text-lg">🔐 “Hãy khóa an toàn cho dữ liệu – mở rộng kết nối bằng sự tử tế.”</p>
+                    <p>Mỗi học sinh UKA là một người gác cổng số, cùng nhau giữ môi trường mạng an toàn, nhân văn, không một mình. Bài học này là bước đầu tiên trong hành trình xây dựng “Kháng thể số” của mỗi học sinh UKA.</p>
+                    <p>Hãy cùng tham gia:</p>
+                    <ul class="list-disc list-inside space-y-1 pl-4">
+                        <li>Hoàn thành quiz “Bảo vệ cá nhân – Kháng thể số cấp 1”,</li>
+                        <li>Đổi avatar chiến dịch</li>
+                        <li>Check-in xác nhận đã bật xác thực hai lớp và kiểm tra quyền riêng tư trên tài khoản mạng xã hội cá nhân.</li>
+                        <li>Đăng thông điệp của lớp với hashtag #KhongMotMinh #Niemtinso #CungNhauAnToanTrucTuyen #UKAcademyHaLong</li>
+                    </ul>
                 `,
                 questions: [
                     { type: 'mcq', question: "Câu 1: Mật khẩu nào an toàn nhất?", options: ["A. ukahalong123", "B. 12345678", "C. Uka@2025!", "D. halonguka"], answer: "C. Uka@2025!" },
@@ -247,46 +300,87 @@
         }
 
         function showResult(percentage) {
-            showView(quizView); // Keep quiz view visible under modal
+            showView(quizView); 
             resultModal.classList.remove('hidden');
             setTimeout(() => resultContent.classList.remove('scale-95', 'opacity-0'), 100);
 
             document.getElementById('result-score').innerHTML = `Điểm trắc nghiệm: <strong>${percentage}%</strong>`;
+            
+            const robotCongratsEl = document.getElementById('robot-congrats-text');
+            const messageEl = document.getElementById('result-message');
+            const titleEl = document.getElementById('result-title');
+            const cupContainer = document.getElementById('cup-container');
+
             if (percentage >= 80) {
-                document.getElementById('result-title').textContent = "Xuất sắc!";
-                document.getElementById('result-message').textContent = `Chúc mừng ${studentInfo.name}! Bạn là người bảo vệ tuyệt vời!`;
-                document.getElementById('cup-container').style.display = 'block';
+                titleEl.textContent = "Xuất sắc!";
+                cupContainer.style.display = 'block';
                 triggerFireworks();
                 
                 normalResultContent.classList.add('hidden');
                 robotMessageContent.classList.remove('hidden');
-                document.getElementById('robot-congrats-text').textContent = `UKA Hạ Long chúc mừng ${studentInfo.name} đã vượt qua thử thách và đạt được huy hiệu tuần “Chiến binh an toàn số”!`;
+                robotCongratsEl.textContent = `UKA Hạ Long chúc mừng ${studentInfo.name} đã vượt qua thử thách và đạt được huy hiệu tuần “Chiến binh an toàn số”!`;
             } else {
-                document.getElementById('result-title').textContent = "Cố gắng hơn nhé!";
-                document.getElementById('result-message').textContent = `Hãy ôn lại kiến thức và thử lại vào tuần sau, ${studentInfo.name}!`;
-                document.getElementById('cup-container').style.display = 'none';
+                titleEl.textContent = "Cố gắng hơn nhé!";
+                messageEl.textContent = `Hãy ôn lại kiến thức và thử lại nhé, ${studentInfo.name}!`;
+                cupContainer.style.display = 'none';
                 normalResultContent.classList.remove('hidden');
                 robotMessageContent.classList.add('hidden');
             }
         }
 
         function triggerFireworks() {
-            const confettiInstance = confetti.create(fireworksCanvas, { resize: true, useWorker: true });
-            const duration = 3 * 1000, end = Date.now() + duration;
-            (function frame() {
-                confettiInstance({ particleCount: 2, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#ffc700', '#ffc700'] });
-                confettiInstance({ particleCount: 2, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#ffc700', '#ffc700'] });
-                if (Date.now() < end) requestAnimationFrame(frame);
-            }());
-        }
+            const duration = 4 * 1000; // Run for 4 seconds
+            const animationEnd = Date.now() + duration;
+            const myConfetti = confetti.create(fireworksCanvas, {
+                resize: true,
+                useWorker: true
+            });
 
+            // More colors for the fireworks
+            const colors = ['#00529D', '#FFD700', '#FFFFFF', '#4169E1', '#FF6347', '#32CD32'];
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            const interval = setInterval(function() {
+                const timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                const particleCount = 50 * (timeLeft / duration);
+                
+                // launch a few confetti from random positions on the left and right
+                myConfetti({
+                    startVelocity: 30,
+                    spread: 360,
+                    ticks: 60,
+                    zIndex: 100,
+                    particleCount,
+                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+                    colors: colors
+                });
+                myConfetti({
+                    startVelocity: 30,
+                    spread: 360,
+                    ticks: 60,
+                    zIndex: 100,
+                    particleCount,
+                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+                    colors: colors
+                });
+            }, 250);
+        }
+        
         async function saveDataToGoogleSheets(week, score) {
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbzOHdV8iGPgZgk0iMRrQ1o72hlouHZX_yZC0eumGHIAgDWmKrgk042kwHPE0BSgxhVScA/exec';
+            const scriptURL = 'THAY_THẾ_BẰNG_URL_CỦA_THẦY'; // <-- IMPORTANT: Replace this!
             const formData = new FormData();
             formData.append('Hoten', studentInfo.name);
             formData.append('Email', studentInfo.email);
             formData.append('Lop', studentInfo.class);
-            formData.append('Truong', studentInfo.school);
+            // formData.append('Truong', studentInfo.school);
             formData.append('Tuan', week);
             formData.append('Diemso', score);
             try {
@@ -305,14 +399,21 @@
             showView(registrationView);
         }
 
+        function retryFromTheory() {
+            resultModal.classList.add('hidden');
+            quizContainer.classList.remove('submitted');
+            submitQuizBtn.disabled = false;
+            showTheory('week1');
+        }
+
         // --- EVENT LISTENERS ---
         registrationForm.addEventListener('submit', (e) => {
             e.preventDefault();
             studentInfo.name = document.getElementById('student-name').value;
             studentInfo.email = document.getElementById('student-email').value;
             studentInfo.class = document.getElementById('student-class').value;
-            studentInfo.school = document.getElementById('student-school').value;
-            if (Object.values(studentInfo).some(val => !val)) {
+            // studentInfo.school = document.getElementById('student-school').value;
+            if (!studentInfo.name || !studentInfo.email || !studentInfo.class) {
                 alert('Vui lòng điền đầy đủ thông tin.');
                 return;
             }
@@ -327,19 +428,21 @@
         submitQuizBtn.addEventListener('click', submitQuiz);
         closeModalBtn.addEventListener('click', resetApp);
         continueBtn.addEventListener('click', resetApp);
+        continueBtnFail.addEventListener('click', retryFromTheory);
 
         const shareOnFacebook = () => {
             const url = encodeURIComponent(window.location.href);
             const text = encodeURIComponent(`"${studentInfo.name}" đã đạt danh hiệu "Chiến binh an toàn số" trong chiến dịch Không Một Mình!`);
             window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank');
         };
-        const shareOnZalo = () => alert(`Sao chép link này và chia sẻ trên Zalo nhé: ${window.location.href}`);
         
-        // Gắn sự kiện cho cả 2 bộ nút chia sẻ
-        document.getElementById('share-fb').addEventListener('click', shareOnFacebook);
-        document.getElementById('share-zalo').addEventListener('click', shareOnZalo);
-        document.getElementById('share-fb-2').addEventListener('click', shareOnFacebook);
-        document.getElementById('share-zalo-2').addEventListener('click', shareOnZalo);
+        const shareOnZalo = () => {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://zalo.me/share/link?url=${url}`, '_blank');
+        };
+        
+        document.querySelectorAll('#share-fb-2').forEach(btn => btn.addEventListener('click', shareOnFacebook));
+        document.querySelectorAll('#share-zalo-2').forEach(btn => btn.addEventListener('click', shareOnZalo));
 
     </script>
 </body>
