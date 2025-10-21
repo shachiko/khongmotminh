@@ -98,8 +98,8 @@
                      onerror="this.onerror=null;this.src='https://placehold.co/150x150/FFFFFF/00529D?text=Robot';">
                 <p id="robot-congrats-text" class="text-xl font-bold text-blue-700 mb-4"></p>
                 <div class="flex justify-center space-x-4 mb-4">
-                    <button id="share-fb" class="bg-blue-800 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Facebook</button>
-                    <button id="share-zalo" class="bg-blue-500 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Zalo</button>
+                    <button id="share-fb-2" class="bg-blue-800 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Facebook</button>
+                    <button id="share-zalo-2" class="bg-blue-500 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Zalo</button>
                 </div>
                 <button id="continue-btn" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors mt-4">Tiếp tục</button>
             </div>
@@ -258,14 +258,14 @@
                 document.getElementById('cup-container').style.display = 'block';
                 triggerFireworks();
                 
-                normalResultContent.style.display = 'none';
+                normalResultContent.classList.add('hidden');
                 robotMessageContent.classList.remove('hidden');
                 document.getElementById('robot-congrats-text').textContent = `UKA Hạ Long chúc mừng ${studentInfo.name} đã vượt qua thử thách và đạt được huy hiệu tuần “Chiến binh an toàn số”!`;
             } else {
                 document.getElementById('result-title').textContent = "Cố gắng hơn nhé!";
                 document.getElementById('result-message').textContent = `Hãy ôn lại kiến thức và thử lại vào tuần sau, ${studentInfo.name}!`;
                 document.getElementById('cup-container').style.display = 'none';
-                normalResultContent.style.display = 'block';
+                normalResultContent.classList.remove('hidden');
                 robotMessageContent.classList.add('hidden');
             }
         }
@@ -300,7 +300,7 @@
             resultModal.classList.add('hidden');
             quizContainer.classList.remove('submitted');
             submitQuizBtn.disabled = false;
-            normalResultContent.style.display = 'block';
+            normalResultContent.classList.remove('hidden');
             robotMessageContent.classList.add('hidden');
             showView(registrationView);
         }
@@ -334,8 +334,13 @@
             window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank');
         };
         const shareOnZalo = () => alert(`Sao chép link này và chia sẻ trên Zalo nhé: ${window.location.href}`);
+        
+        // Gắn sự kiện cho cả 2 bộ nút chia sẻ
         document.getElementById('share-fb').addEventListener('click', shareOnFacebook);
         document.getElementById('share-zalo').addEventListener('click', shareOnZalo);
+        document.getElementById('share-fb-2').addEventListener('click', shareOnFacebook);
+        document.getElementById('share-zalo-2').addEventListener('click', shareOnZalo);
+
     </script>
 </body>
 </html>
