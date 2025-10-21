@@ -135,7 +135,7 @@
         let currentQuiz = {};
         let userAnswers = [];
         
-        // --- DỮ LIỆU BÀI KIỂM TRA (Thầy sẽ tự thay đổi hàng tuần) ---
+        // --- QUIZ DATA ---
         const quizzes = {
             week1: {
                 title: "CHỦ ĐỀ 1: BẢO VỆ CÁ NHÂN",
@@ -144,68 +144,11 @@
                     <h4 class="text-xl font-bold mb-3 text-blue-700">Các em hãy đọc câu chuyện dưới đây</h4>
                     <p class="mb-4 bg-blue-100 p-3 rounded-lg">Một buổi chiều, Lan đăng lên mạng tấm ảnh thẻ học sinh mới chụp. Ảnh có tên, trường và mã số học sinh. Vài phút sau, một người lạ nhắn tin: “Chào em, chị là nhân viên học bổng. Em gửi thêm số CCCD để nhận quà nhé!”. Lan vui vẻ làm theo. Chỉ một ngày sau, tài khoản của Lan bị chiếm. Hàng chục bạn bè nhận tin nhắn vay tiền từ “Lan giả”.</p>
                     <p class="font-bold">💭 Theo em, Lan đã mắc sai lầm ở đâu?</p>
-                    
                     <h4 class="text-xl font-bold mt-6 mb-3 text-blue-700">1. Vì sao cần bảo vệ bản thân trên mạng?</h4>
-                    <p>Mạng Internet giống như một ngôi nhà rộng lớn, nơi ai cũng có thể ghé thăm. Nếu ngoài đời em không đưa chìa khóa nhà cho người lạ, thì trên mạng, việc chia sẻ thông tin cá nhân mà không cẩn trọng cũng nguy hiểm y như vậy. Kẻ xấu có thể dùng thông tin đó để lừa đảo, đe dọa hoặc giả mạo em. Giữ bí mật thông tin chính là giữ an toàn cho chính mình.</p>
+                    <p>Mạng Internet giống như một ngôi nhà rộng lớn, nơi ai cũng có thể ghé thăm. Giữ bí mật thông tin chính là giữ an toàn cho chính mình.</p>
                     <p class="italic text-blue-600">🌱 Trên mạng, mỗi thông tin nhỏ đều có thể trở thành “dấu vết số”.</p>
-                    
                     <h4 class="text-xl font-bold mt-6 mb-3 text-blue-700">2. Thông tin cá nhân là gì?</h4>
-                    <p>🧩 Thông tin cá nhân là những dữ liệu giúp người khác nhận biết hoặc xác định em là ai. Chúng có thể là:</p>
-                    <ul class="list-disc list-inside space-y-1 pl-4">
-                        <li>Họ tên, ngày sinh, địa chỉ, số điện thoại;</li>
-                        <li>Ảnh cá nhân, mã học sinh, tài khoản mạng xã hội;</li>
-                        <li>Email, mật khẩu, vị trí, lịch học.</li>
-                    </ul>
-                    <p class="mt-2 italic text-red-600">📸 Ví dụ: Một bạn đăng ảnh thẻ học sinh có ghi tên và trường. Người lạ có thể dễ dàng tìm ra địa chỉ chỉ bằng vài cú tìm kiếm!</p>
-
-                    <h4 class="text-xl font-bold mt-6 mb-3 text-blue-700">3. Giữ an toàn cho tài khoản</h4>
-                    <p>🔑 Mật khẩu mạnh là lớp khóa đầu tiên. Một mật khẩu an toàn cần:</p>
-                     <ul class="list-disc list-inside space-y-1 pl-4">
-                        <li>Ít nhất 8 ký tự, gồm chữ hoa – chữ thường – số – ký tự đặc biệt.</li>
-                        <li>Dễ nhớ với em, nhưng khó đoán với người khác.</li>
-                    </ul>
-                    <p class="mt-2">✅ Ví dụ: Uka@2025!, HaLong#9x!</p>
-                    <p>🚫 Tránh: 123456, uka2025, ngày sinh.</p>
-                    <p class="italic text-blue-600">💬 Mẹo nhỏ: Hãy biến một câu quen thuộc thành mật khẩu! “UKA là ngôi trường tuyệt vời” → UkaLaNgT@2025</p>
-                    <p class="mt-4">📱 Xác thực hai lớp (2FA) – lớp khóa thứ hai. Ngay cả khi kẻ xấu biết mật khẩu, họ vẫn không thể vào tài khoản nếu em bật xác thực hai bước. Khi đăng nhập, em sẽ nhận được mã OTP qua điện thoại hoặc email.</p>
-                    <p class="font-bold text-green-700">💡 Hãy bật tính năng “Xác thực hai lớp” trong phần Bảo mật của Zalo, Facebook, TikTok hay Gmail. Đây là “lá chắn kép” cho tài khoản của em!</p>
-                    
-                    <h4 class="text-xl font-bold mt-6 mb-3 text-blue-700">4. Cài đặt quyền riêng tư</h4>
-                    <p>Không phải ai cũng nên thấy bài đăng của em.</p>
-                    <ul class="list-disc list-inside space-y-1 pl-4">
-                        <li>Chỉ để bạn bè thật xem bài viết.</li>
-                        <li>Không công khai hình ảnh gia đình hay địa chỉ nhà.</li>
-                        <li>Khi đăng ảnh nhóm, xin phép các bạn trước.</li>
-                    </ul>
-                    <p class="mt-2 italic text-red-600">📍 Ví dụ: Một bạn gắn vị trí “Trường UKA Hạ Long” dưới mỗi bài đăng. → Người lạ có thể biết thời gian học, vị trí lớp học – gây nguy cơ bị theo dõi.</p>
-                    <p class="mt-2 font-bold">🧠 Gợi ý: Trước khi đăng bất kỳ hình ảnh nào, hãy tự hỏi: “Nếu cả thế giới nhìn thấy điều này, mình có thấy thoải mái không?”</p>
-
-                    <h4 class="text-xl font-bold mt-6 mb-3 text-blue-700">5. Tôn trọng người khác – cũng là bảo vệ chính mình</h4>
-                    <p>Khi sử dụng mạng xã hội, mỗi em không chỉ giữ an toàn cho bản thân mà còn góp phần xây dựng môi trường mạng lành mạnh.</p>
-                     <ul class="list-disc list-inside space-y-1 pl-4">
-                        <li>Không chia sẻ, bình luận ác ý hay tin giả.</li>
-                        <li>Không đăng ảnh bạn bè khi chưa được đồng ý.</li>
-                        <li>Không phát tán nội dung nhạy cảm, dù chỉ “cho vui”.</li>
-                    </ul>
-                    <p class="mt-2 italic text-blue-600">🌼 Hãy là người dùng mạng văn minh, biết tôn trọng quyền riêng tư – vì an toàn trực tuyến là an toàn của cả cộng đồng.</p>
-
-                    <h4 class="text-xl font-bold mt-6 mb-3 text-green-700">🌈 Em cần ghi nhớ</h4>
-                     <ul class="list-disc list-inside space-y-1 pl-4 font-semibold">
-                        <li>Không chia sẻ thông tin cá nhân tùy tiện.</li>
-                        <li>Sử dụng mật khẩu mạnh và bật xác thực hai lớp.</li>
-                        <li>Cài đặt quyền riêng tư, không gắn vị trí thật.</li>
-                        <li>Tôn trọng quyền riêng tư của người khác.</li>
-                    </ul>
-                    <p class="mt-4 font-bold text-center text-lg">💖 An toàn trên mạng bắt đầu từ chính ý thức của mỗi người. 💖</p>
-                    <p class="mt-4 text-center font-bold text-blue-800 text-lg">🔐 “Hãy khóa an toàn cho dữ liệu – mở rộng kết nối bằng sự tử tế.”</p>
-                    <p>Mỗi học sinh UKA là một người gác cổng số, cùng nhau giữ môi trường mạng an toàn, nhân văn, không một mình. Bài học này là bước đầu tiên trong hành trình xây dựng “Kháng thể số” của mỗi học sinh UKA.</p>
-                    <p>Hãy cùng tham gia:</p>
-                    <ul class="list-disc list-inside space-y-1 pl-4">
-                        <li>Hoàn thành quiz “Bảo vệ cá nhân – Kháng thể số cấp 1”.</li>
-                        <li>Đổi avatar chiến dịch.</li>
-                        <li>Check-in xác nhận đã bật xác thực hai lớp và kiểm tra quyền riêng tư trên tài khoản mạng xã hội cá nhân.</li>
-                        <li>Đăng thông điệp của lớp với hashtag #KhongMotMinh #Niemtinso #CungNhauAnToanTrucTuyen #UKAcademyHaLong</li>
-                    </ul>
+                    <p>🧩 Thông tin cá nhân là những dữ liệu giúp người khác nhận biết hoặc xác định em là ai.</p>
                     <p class="mt-4 font-bold">Hãy đọc kỹ để sẵn sàng cho thử thách nhé!</p>
                 `,
                 questions: [
@@ -219,7 +162,6 @@
                     { type: 'checkbox', question: "Câu 7.2: Em hãy đọc kỹ lại các kiến thức về bảo mật 2 lớp và xác nhận đã hiểu rõ thông tin nhé.", condition: { questionIndex: 5, answer: "B. Không" } }
                 ]
             },
-            // Thầy có thể thêm week2, week3... ở đây
         };
 
         // --- FUNCTIONS ---
@@ -339,7 +281,7 @@
         }
 
         async function saveDataToGoogleSheets(week, score) {
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbziOt9OPA8EZwpcXUhNECyc3Z98jtIbQr2m0PBcBGcNjhBBXPPx5hwsSqLfavwivb5n-g/exec';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzOHdV8iGPgZgk0iMRrQ1o72hlouHZX_yZC0eumGHIAgDWmKrgk042kwHPE0BSgxhVScA/exec';
             const formData = new FormData();
             formData.append('Hoten', studentInfo.name);
             formData.append('Email', studentInfo.email);
