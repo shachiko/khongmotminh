@@ -19,20 +19,17 @@
             background-color: #93C5FD; /* Darker blue when selected */
             border-color: #2563EB;
         }
-        /* Style for correct answer */
         .quiz-option.correct {
-            background-color: #D1FAE5; /* Green-100 */
-            border-color: #059669; /* Green-600 */
-            color: #047857; /* Green-700 */
+            background-color: #D1FAE5;
+            border-color: #059669;
+            color: #047857;
             font-weight: bold;
         }
-        /* Style for incorrect answer */
         .quiz-option.incorrect {
-            background-color: #FEE2E2; /* Red-100 */
-            border-color: #E11D48; /* Rose-600 */
-            color: #BE123C; /* Rose-700 */
+            background-color: #FEE2E2;
+            border-color: #E11D48;
+            color: #BE123C;
         }
-        /* Disable clicks after submission */
         #quiz-container.submitted .quiz-option {
             pointer-events: none;
             cursor: default;
@@ -43,70 +40,66 @@
 
     <div id="app" class="container mx-auto p-4 max-w-4xl flex flex-col flex-grow">
 
-        <!-- Header --><header class="text-center my-8">
-            <img id="logo" src="https://placehold.co/100x100/FFFFFF/00529D?text=Logo" alt="Logo Không Một Mình" class="w-20 h-20 mx-auto mb-4 rounded-full"
+        <header class="text-center my-8">
+            <img id="logo" src="logo-tron.png" alt="Logo Không Một Mình" class="w-20 h-20 mx-auto mb-4 rounded-full"
                  onerror="this.onerror=null;this.src='https://placehold.co/100x100/FFFFFF/00529D?text=Logo';">
             <h1 class="text-4xl font-bold text-blue-800">Không Một Mình</h1>
             <p class="text-lg text-blue-600">Cùng nhau an toàn trực tuyến</p>
         </header>
 
         <main id="main-content" class="flex-grow flex items-center justify-center">
-            <!-- Registration View --><div id="registration-view" class="bg-white p-8 rounded-xl shadow-lg text-center w-full">
-                 <img id="banner" src="https://placehold.co/800x400/00529D/FFFFFF?text=Chiến+dịch+Không+Một+Mình" alt="Banner Chiến dịch" class="w-full h-64 object-cover rounded-lg mb-6"
+            <div id="registration-view" class="bg-white p-8 rounded-xl shadow-lg text-center w-full">
+                 <img id="banner" src="Kmm-01.jpg" alt="Banner Chiến dịch" class="w-full h-64 object-cover rounded-lg mb-6"
                        onerror="this.onerror=null;this.src='https://placehold.co/800x400/00529D/FFFFFF?text=Banner';">
                 <h2 class="text-2xl font-bold mb-4">Tham gia Thử thách Bảo vệ</h2>
                 <p class="mb-6">Hãy điền thông tin để bắt đầu bài kiểm tra hàng tuần và tích luỹ cúp nhé!</p>
                 <form id="registration-form" class="space-y-4 max-w-sm mx-auto">
                     <input type="text" id="student-name" placeholder="Họ và tên của bạn" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     <input type="email" id="student-email" placeholder="Email nhận chứng nhận" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <input type="text" id="student-class" placeholder="Lớp" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <input type="text" id="student-school" placeholder="Trường" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">BẮT ĐẦU TUẦN 1</button>
                 </form>
             </div>
 
-            <!-- Theory View --><div id="theory-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
+            <div id="theory-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
                 <h2 id="theory-title" class="text-2xl font-bold mb-4 text-center">Kiến thức Tuần 1</h2>
                 <div id="theory-content" class="text-left mb-6 space-y-4 max-h-[60vh] overflow-y-auto pr-4">
-                    <!-- Theory content will be dynamically inserted here -->
                 </div>
                 <button id="start-quiz-btn" class="mt-6 w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">Đã hiểu, Bắt đầu làm bài</button>
             </div>
 
-            <!-- Quiz View --><div id="quiz-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
+            <div id="quiz-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
                 <h2 id="quiz-title" class="text-2xl font-bold mb-2 text-center">Bài kiểm tra Tuần 1</h2>
-                <p id="quiz-description" class="text-center mb-6">Chọn câu trả lời đúng nhất cho các câu hỏi dưới đây.</p>
-                <div id="quiz-container" class="space-y-6">
-                    <!-- Questions will be dynamically inserted here --></div>
+                <p id="quiz-description" class="text-center mb-6">Chọn câu trả lời đúng nhất.</p>
+                <div id="quiz-container" class="space-y-6"></div>
                 <button id="submit-quiz" class="mt-8 w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400">Nộp bài</button>
             </div>
         </main>
     </div>
 
-    <!-- Footer --><footer class="text-center py-6 text-sm text-gray-500">
+    <footer class="text-center py-6 text-sm text-gray-500">
         <p>&copy; 2025 - Sản phẩm thuộc bản quyền của trường UK ACADEMY HA LONG</p>
     </footer>
 
-    <!-- Result Modal --><div id="result-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50">
+    <div id="result-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50">
         <div class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-md w-full relative transform transition-all scale-95 opacity-0" id="result-content">
-            <!-- Normal Result Content --><div id="normal-result-content">
-                <h2 id="result-title" class="text-3xl font-bold text-yellow-500 mb-4">Chúc mừng!</h2>
+            <div id="normal-result-content">
+                <h2 id="result-title" class="text-3xl font-bold text-yellow-500 mb-4"></h2>
                 <div id="cup-container" class="my-4">
                     <svg class="w-32 h-32 mx-auto text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-1.707 1.707A1 1 0 003 15h14a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM8 16a2 2 0 114 0H8z"></path><path fill-rule="evenodd" d="M10 0a1 1 0 011 1v.065a8.002 8.002 0 015.657 5.657A1 1 0 0117 8v3.586l1.707 1.707a1 1 0 01-1.414 1.414L16 13.414V8a6.002 6.002 0 00-5-5.917V1a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
                 </div>
-                <p id="result-message" class="text-xl font-semibold text-gray-700 my-4">Bạn là người bảo vệ tuyệt vời!</p>
-                <p id="result-score" class="text-lg mb-6">Điểm số của bạn: <strong>100%</strong></p>
-                <div class="flex justify-center space-x-4">
-                    <button id="share-fb" class="bg-blue-800 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Facebook</button>
-                    <button id="share-zalo" class="bg-blue-500 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Zalo</button>
-                </div>
+                <p id="result-message" class="text-xl font-semibold text-gray-700 my-4"></p>
+                <p id="result-score" class="text-lg mb-6"></p>
             </div>
 
-            <!-- Robot Message Content (Initially hidden) --><div id="robot-message-content" class="hidden mt-6">
+            <div id="robot-message-content" class="hidden">
                 <img src="robot-uka.png" alt="Robot UKA Hạ Long" class="w-40 h-40 mx-auto mb-4 object-contain"
                      onerror="this.onerror=null;this.src='https://placehold.co/150x150/FFFFFF/00529D?text=Robot';">
-                <p id="robot-congrats-text" class="text-xl font-bold text-blue-700 mb-4">UKA Hạ Long chúc mừng bạn vượt qua thử thách và đạt được huy hiệu tuần “Chiến binh an toàn số”!</p>
+                <p id="robot-congrats-text" class="text-xl font-bold text-blue-700 mb-4"></p>
                 <div class="flex justify-center space-x-4 mb-4">
-                    <button id="share-fb-2" class="bg-blue-800 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Facebook</button>
-                    <button id="share-zalo-2" class="bg-blue-500 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Zalo</button>
+                    <button id="share-fb" class="bg-blue-800 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Facebook</button>
+                    <button id="share-zalo" class="bg-blue-500 text-white font-bold py-2 px-5 rounded-lg">Chia sẻ Zalo</button>
                 </div>
                 <button id="continue-btn" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors mt-4">Tiếp tục</button>
             </div>
@@ -115,10 +108,11 @@
         </div>
     </div>
     
-    <!-- Canvas for fireworks --><canvas id="fireworks-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-50"></canvas>
+    <canvas id="fireworks-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-50"></canvas>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     <script>
+        // DOM Elements
         const registrationView = document.getElementById('registration-view');
         const theoryView = document.getElementById('theory-view');
         const quizView = document.getElementById('quiz-view');
@@ -130,18 +124,17 @@
         const quizContainer = document.getElementById('quiz-container');
         const submitQuizBtn = document.getElementById('submit-quiz');
         const closeModalBtn = document.getElementById('close-modal');
-        const continueBtn = document.getElementById('continue-btn'); // Nút Tiếp tục của robot
+        const continueBtn = document.getElementById('continue-btn');
         const fireworksCanvas = document.getElementById('fireworks-canvas');
         const theoryContent = document.getElementById('theory-content');
         const theoryTitle = document.getElementById('theory-title');
         const startQuizBtn = document.getElementById('start-quiz-btn');
 
-        let studentName = '';
-        let studentEmail = '';
+        // State
+        let studentInfo = { name: '', email: '', class: '', school: '' };
         let currentQuiz = {};
         let userAnswers = [];
-        let quizScorePercentage = 0; // Biến lưu điểm phần trăm
-
+        
         // --- DỮ LIỆU BÀI KIỂM TRA (Thầy sẽ tự thay đổi hàng tuần) ---
         const quizzes = {
             week1: {
@@ -216,144 +209,63 @@
                     <p class="mt-4 font-bold">Hãy đọc kỹ để sẵn sàng cho thử thách nhé!</p>
                 `,
                 questions: [
-                    {
-                        type: 'mcq',
-                        question: "Câu 1: Mật khẩu nào an toàn nhất?",
-                        options: [
-                            "A. ukahalong123",
-                            "B. 12345678",
-                            "C. Uka@2025!",
-                            "D. halonguka"
-                        ],
-                        answer: "C. Uka@2025!"
-                    },
-                    {
-                        type: 'mcq',
-                        question: "Câu 2: Khi người lạ xin ảnh cá nhân, em nên:",
-                        options: [
-                            "A. Gửi ngay",
-                            "B. Chia sẻ qua nick phụ",
-                            "C. Từ chối và báo cho GVCN/cha mẹ",
-                            "D. Xoá tin nhắn"
-                        ],
-                        answer: "C. Từ chối và báo cho GVCN/cha mẹ"
-                    },
-                    {
-                        type: 'mcq',
-                        question: "Câu 3: “Xác thực hai lớp” giúp:",
-                        options: [
-                            "A. Đăng nhập nhanh hơn",
-                            "B. Ngăn người lạ truy cập dù biết mật khẩu",
-                            "C. Giữ mật khẩu ngắn",
-                            "D. Lưu mật khẩu tự động"
-                        ],
-                        answer: "B. Ngăn người lạ truy cập dù biết mật khẩu"
-                    },
-                    {
-                        type: 'mcq',
-                        question: "Câu 4: Khi đăng ảnh nhóm bạn cần:",
-                        options: [
-                            "A. Đăng tự do",
-                            "B. Tag hết bạn",
-                            "C. Xin phép trước khi đăng",
-                            "D. Không cần vì là bạn"
-                        ],
-                        answer: "C. Xin phép trước khi đăng"
-                    },
-                    {
-                        type: 'mcq',
-                        question: "Câu 5: Khi phát hiện ai đó giả mạo tài khoản của mình:",
-                        options: [
-                            "A. Bỏ qua",
-                            "B. Báo cáo và đổi mật khẩu",
-                            "C. Viết status cảnh báo",
-                            "D. Tạo tài khoản mới"
-                        ],
-                        answer: "B. Báo cáo và đổi mật khẩu"
-                    },
-                    {
-                        type: 'mcq',
-                        question: "Câu 6: Em có đang sử dụng tài khoản mạng xã hội không?",
-                        options: [
-                            "A. Có",
-                            "B. Không"
-                        ],
-                        answer: null // This question is for logic, not scoring
-                    },
-                    {
-                        type: 'file',
-                        question: "Câu 7.1: Tuyệt vời! Hãy chụp ảnh màn hình minh chứng em đã bật xác thực bảo mật tài khoản 2 lớp và tải lên đây nhé.",
-                        condition: { questionIndex: 5, answer: "A. Có" } // Condition based on question 6 (index 5)
-                    },
-                    {
-                        type: 'checkbox',
-                        question: "Câu 7.2: Em hãy đọc kỹ lại các kiến thức về bảo mật 2 lớp và xác nhận đã hiểu rõ thông tin nhé.",
-                        condition: { questionIndex: 5, answer: "B. Không" } // Condition based on question 6 (index 5)
-                    }
+                    { type: 'mcq', question: "Câu 1: Mật khẩu nào an toàn nhất?", options: ["A. ukahalong123", "B. 12345678", "C. Uka@2025!", "D. halonguka"], answer: "C. Uka@2025!" },
+                    { type: 'mcq', question: "Câu 2: Khi người lạ xin ảnh cá nhân, em nên:", options: ["A. Gửi ngay", "B. Chia sẻ qua nick phụ", "C. Từ chối và báo cho GVCN/cha mẹ", "D. Xoá tin nhắn"], answer: "C. Từ chối và báo cho GVCN/cha mẹ" },
+                    { type: 'mcq', question: "Câu 3: “Xác thực hai lớp” giúp:", options: ["A. Đăng nhập nhanh hơn", "B. Ngăn người lạ truy cập dù biết mật khẩu", "C. Giữ mật khẩu ngắn", "D. Lưu mật khẩu tự động"], answer: "B. Ngăn người lạ truy cập dù biết mật khẩu" },
+                    { type: 'mcq', question: "Câu 4: Khi đăng ảnh nhóm bạn cần:", options: ["A. Đăng tự do", "B. Tag hết bạn", "C. Xin phép trước khi đăng", "D. Không cần vì là bạn"], answer: "C. Xin phép trước khi đăng" },
+                    { type: 'mcq', question: "Câu 5: Khi phát hiện ai đó giả mạo tài khoản của mình:", options: ["A. Bỏ qua", "B. Báo cáo và đổi mật khẩu", "C. Viết status cảnh báo", "D. Tạo tài khoản mới"], answer: "B. Báo cáo và đổi mật khẩu" },
+                    { type: 'mcq', question: "Câu 6: Em có đang sử dụng tài khoản mạng xã hội không?", options: ["A. Có", "B. Không"], answer: null },
+                    { type: 'file', question: "Câu 7.1: Tuyệt vời! Hãy chụp ảnh màn hình minh chứng em đã bật xác thực bảo mật tài khoản 2 lớp và tải lên đây nhé.", condition: { questionIndex: 5, answer: "A. Có" } },
+                    { type: 'checkbox', question: "Câu 7.2: Em hãy đọc kỹ lại các kiến thức về bảo mật 2 lớp và xác nhận đã hiểu rõ thông tin nhé.", condition: { questionIndex: 5, answer: "B. Không" } }
                 ]
             },
             // Thầy có thể thêm week2, week3... ở đây
         };
 
-        // --- CÁC HÀM XỬ LÝ ---
+        // --- FUNCTIONS ---
+        function showView(viewToShow) {
+            [registrationView, theoryView, quizView].forEach(view => view.classList.add('hidden'));
+            viewToShow.classList.remove('hidden');
+        }
 
         function showTheory(week) {
             currentQuiz = quizzes[week];
             userAnswers = new Array(currentQuiz.questions.length).fill(null);
             theoryTitle.textContent = `Kiến thức ${currentQuiz.title}`;
             theoryContent.innerHTML = currentQuiz.theory;
-            registrationView.classList.add('hidden');
-            theoryView.classList.remove('hidden');
+            showView(theoryView);
         }
 
         function displayQuiz() {
             document.getElementById('quiz-title').textContent = currentQuiz.title;
             document.getElementById('quiz-description').textContent = currentQuiz.description;
             quizContainer.innerHTML = '';
-
             currentQuiz.questions.forEach((q, index) => {
-                const questionElement = document.createElement('div');
-                questionElement.className = 'border-b pb-4';
-                questionElement.id = `question-${index}`;
-
-                // Hide conditional questions initially
-                if (q.condition) {
-                    questionElement.classList.add('hidden');
-                }
-
-                let contentHTML = `<p class="font-semibold text-lg mb-2">${q.question}</p>`;
+                const qElem = document.createElement('div');
+                qElem.className = 'border-b pb-4';
+                qElem.id = `question-${index}`;
+                if (q.condition) qElem.classList.add('hidden');
                 
+                let contentHTML = `<p class="font-semibold text-lg mb-2">${q.question}</p>`;
                 if (q.type === 'mcq') {
-                    contentHTML += `<div class="space-y-2">` + q.options.map(option => `
-                        <div class="quiz-option border rounded-lg p-3 cursor-pointer mt-2" data-q-index="${index}" data-option="${option}">
-                            ${option}
-                        </div>
-                    `).join('') + `</div>`;
+                    contentHTML += `<div class="space-y-2">` + q.options.map(opt => `<div class="quiz-option border rounded-lg p-3 cursor-pointer mt-2" data-q-index="${index}" data-option="${opt}">${opt}</div>`).join('') + `</div>`;
                 } else if (q.type === 'file') {
                     contentHTML += `<input type="file" class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"/>`;
                 } else if (q.type === 'checkbox') {
                     contentHTML += `<label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/> <span class="text-gray-700">Tôi xác nhận đã hiểu và nắm rõ thông tin.</span></label>`;
                 }
-
-                questionElement.innerHTML = contentHTML;
-                quizContainer.appendChild(questionElement);
+                qElem.innerHTML = contentHTML;
+                quizContainer.appendChild(qElem);
             });
             
-            // Add event listeners for options
             document.querySelectorAll('.quiz-option').forEach(el => {
-                el.addEventListener('click', (e) => {
+                el.addEventListener('click', e => {
                     const qIndex = parseInt(e.currentTarget.dataset.qIndex);
                     const option = e.currentTarget.dataset.option;
                     userAnswers[qIndex] = option;
-                    
-                    // Highlight selected option
                     document.querySelectorAll(`.quiz-option[data-q-index="${qIndex}"]`).forEach(opt => opt.classList.remove('selected'));
                     e.currentTarget.classList.add('selected');
-                    
-                    // Handle conditional logic for question 6 (index 5)
-                    if (qIndex === 5) {
-                        handleConditionalQuestions(option);
-                    }
+                    if (qIndex === 5) handleConditionalQuestions(option);
                 });
             });
         }
@@ -361,11 +273,11 @@
         function handleConditionalQuestions(answer) {
             currentQuiz.questions.forEach((q, index) => {
                 if (q.condition) {
-                    const questionElement = document.getElementById(`question-${index}`);
+                    const qElem = document.getElementById(`question-${index}`);
                     if (q.condition.questionIndex === 5 && q.condition.answer === answer) {
-                        questionElement.classList.remove('hidden');
+                        qElem.classList.remove('hidden');
                     } else {
-                        questionElement.classList.add('hidden');
+                        qElem.classList.add('hidden');
                     }
                 }
             });
@@ -374,185 +286,115 @@
         function submitQuiz() {
             submitQuizBtn.disabled = true;
             quizContainer.classList.add('submitted');
-
             let score = 0;
-            let totalScorableQuestions = 0;
-
+            let totalScorable = 0;
             currentQuiz.questions.forEach((q, index) => {
-                // Only score MCQ questions that have an answer
                 if (q.type === 'mcq' && q.answer) {
-                    totalScorableQuestions++;
-                    const userAnswer = userAnswers[index];
-                    const correctAnswer = q.answer;
-
-                    if (userAnswer === correctAnswer) {
-                        score++;
-                    }
-                    
-                    const optionsForQuestion = document.querySelectorAll(`.quiz-option[data-q-index="${index}"]`);
-                    optionsForQuestion.forEach(opt => {
+                    totalScorable++;
+                    if (userAnswers[index] === q.answer) score++;
+                    document.querySelectorAll(`.quiz-option[data-q-index="${index}"]`).forEach(opt => {
                         const optionText = opt.dataset.option;
-                        if (optionText === correctAnswer) {
-                            opt.classList.add('correct');
-                        } else if (optionText === userAnswer && userAnswer !== correctAnswer) {
-                            opt.classList.add('incorrect');
-                        }
+                        if (optionText === q.answer) opt.classList.add('correct');
+                        else if (optionText === userAnswers[index]) opt.classList.add('incorrect');
                     });
                 }
             });
-
-            quizScorePercentage = totalScorableQuestions > 0 ? Math.round((score / totalScorableQuestions) * 100) : 100;
-            
-            saveDataToGoogleSheets(studentName, studentEmail, "week1", quizScorePercentage);
-
-            setTimeout(() => {
-                showResult(quizScorePercentage);
-            }, 1500); 
+            const percentage = totalScorable > 0 ? Math.round((score / totalScorable) * 100) : 100;
+            saveDataToGoogleSheets("week1", percentage);
+            setTimeout(() => showResult(percentage), 1500); 
         }
 
         function showResult(percentage) {
-            quizView.classList.add('hidden');
+            showView(quizView); // Keep quiz view visible under modal
             resultModal.classList.remove('hidden');
-            
-            setTimeout(() => {
-                resultContent.classList.remove('scale-95', 'opacity-0');
-                resultContent.classList.add('scale-100', 'opacity-100');
-            }, 100);
+            setTimeout(() => resultContent.classList.remove('scale-95', 'opacity-0'), 100);
 
-            const scoreEl = document.getElementById('result-score');
-            const titleEl = document.getElementById('result-title');
-            const messageEl = document.getElementById('result-message');
-            const cupContainer = document.getElementById('cup-container');
-            const robotCongratsEl = document.getElementById('robot-congrats-text');
-            
-            scoreEl.innerHTML = `Điểm trắc nghiệm của bạn: <strong>${percentage}%</strong>`;
-
+            document.getElementById('result-score').innerHTML = `Điểm trắc nghiệm: <strong>${percentage}%</strong>`;
             if (percentage >= 80) {
-                titleEl.textContent = "Xuất sắc!";
-                messageEl.textContent = `Chúc mừng ${studentName}! Bạn là người bảo vệ tuyệt vời!`;
-                cupContainer.style.display = 'block';
+                document.getElementById('result-title').textContent = "Xuất sắc!";
+                document.getElementById('result-message').textContent = `Chúc mừng ${studentInfo.name}! Bạn là người bảo vệ tuyệt vời!`;
+                document.getElementById('cup-container').style.display = 'block';
                 triggerFireworks();
                 
-                normalResultContent.classList.remove('block');
-                normalResultContent.classList.add('hidden');
-
-                setTimeout(() => {
-                    robotCongratsEl.textContent = `UKA Hạ Long chúc mừng ${studentName} đã vượt qua thử thách và đạt được huy hiệu tuần “Chiến binh an toàn số”!`;
-                    robotMessageContent.classList.remove('hidden');
-                    robotMessageContent.classList.add('block');
-                }, 2000);
-                
+                normalResultContent.style.display = 'none';
+                robotMessageContent.classList.remove('hidden');
+                document.getElementById('robot-congrats-text').textContent = `UKA Hạ Long chúc mừng ${studentInfo.name} đã vượt qua thử thách và đạt được huy hiệu tuần “Chiến binh an toàn số”!`;
             } else {
-                titleEl.textContent = "Cố gắng hơn nhé!";
-                messageEl.textContent = `Hãy ôn lại kiến thức và thử lại vào tuần sau, ${studentName}!`;
-                cupContainer.style.display = 'none';
-
-                normalResultContent.classList.remove('hidden');
-                normalResultContent.classList.add('block');
+                document.getElementById('result-title').textContent = "Cố gắng hơn nhé!";
+                document.getElementById('result-message').textContent = `Hãy ôn lại kiến thức và thử lại vào tuần sau, ${studentInfo.name}!`;
+                document.getElementById('cup-container').style.display = 'none';
+                normalResultContent.style.display = 'block';
                 robotMessageContent.classList.add('hidden');
             }
         }
 
         function triggerFireworks() {
-            const myConfetti = confetti.create(fireworksCanvas, { resize: true, useWorker: true });
-            const duration = 5 * 1000;
-            const animationEnd = Date.now() + duration;
-            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
-            function randomInRange(min, max) { return Math.random() * (max - min) + min; }
-
-            const interval = setInterval(() => {
-              const timeLeft = animationEnd - Date.now();
-              if (timeLeft <= 0) return clearInterval(interval);
-              const particleCount = 50 * (timeLeft / duration);
-              myConfetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-              myConfetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-            }, 250);
+            const confettiInstance = confetti.create(fireworksCanvas, { resize: true, useWorker: true });
+            const duration = 3 * 1000, end = Date.now() + duration;
+            (function frame() {
+                confettiInstance({ particleCount: 2, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#ffc700', '#ffc700'] });
+                confettiInstance({ particleCount: 2, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#ffc700', '#ffc700'] });
+                if (Date.now() < end) requestAnimationFrame(frame);
+            }());
         }
 
-        async function saveDataToGoogleSheets(name, email, week, score) {
+        async function saveDataToGoogleSheets(week, score) {
             const scriptURL = 'https://script.google.com/macros/s/AKfycbziOt9OPA8EZwpcXUhNECyc3Z98jtIbQr2m0PBcBGcNjhBBXPPx5hwsSqLfavwivb5n-g/exec';
             const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('week', week);
-            formData.append('score', score);
-
+            formData.append('Hoten', studentInfo.name);
+            formData.append('Email', studentInfo.email);
+            formData.append('Lop', studentInfo.class);
+            formData.append('Truong', studentInfo.school);
+            formData.append('Tuan', week);
+            formData.append('Diemso', score);
             try {
-                 console.log('Đang gửi dữ liệu:', { name, email, week, score });
-                await fetch(scriptURL, { method: 'POST', body: formData });             
+                 await fetch(scriptURL, { method: 'POST', body: formData });
             } catch (error) {
                 console.error('Lỗi khi gửi dữ liệu:', error.message);
             }
         }
         
-        function resetQuiz() {
-            quizView.classList.add('hidden');
-            theoryView.classList.add('hidden');
-            registrationView.classList.remove('hidden');
-            quizContainer.innerHTML = '';
+        function resetApp() {
+            resultModal.classList.add('hidden');
             quizContainer.classList.remove('submitted');
-            userAnswers = [];
-            currentQuiz = {};
             submitQuizBtn.disabled = false;
-            normalResultContent.classList.remove('hidden');
-            normalResultContent.classList.add('block');
+            normalResultContent.style.display = 'block';
             robotMessageContent.classList.add('hidden');
+            showView(registrationView);
         }
 
         // --- EVENT LISTENERS ---
         registrationForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            studentName = document.getElementById('student-name').value;
-            studentEmail = document.getElementById('student-email').value;
-
-            if (!studentName || !studentEmail) {
-                alert('Vui lòng điền đầy đủ họ tên và email.');
+            studentInfo.name = document.getElementById('student-name').value;
+            studentInfo.email = document.getElementById('student-email').value;
+            studentInfo.class = document.getElementById('student-class').value;
+            studentInfo.school = document.getElementById('student-school').value;
+            if (Object.values(studentInfo).some(val => !val)) {
+                alert('Vui lòng điền đầy đủ thông tin.');
                 return;
             }
             showTheory('week1');
         });
 
         startQuizBtn.addEventListener('click', () => {
-            theoryView.classList.add('hidden');
-            quizView.classList.remove('hidden');
+            showView(quizView);
             displayQuiz();
         });
 
         submitQuizBtn.addEventListener('click', submitQuiz);
-
-        closeModalBtn.addEventListener('click', () => {
-             resultModal.classList.add('hidden');
-             resetQuiz();
-        });
-
-        continueBtn.addEventListener('click', () => {
-             resultModal.classList.add('hidden');
-             resetQuiz();
-        });
+        closeModalBtn.addEventListener('click', resetApp);
+        continueBtn.addEventListener('click', resetApp);
 
         const shareOnFacebook = () => {
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('Tôi đã đạt danh hiệu "Chiến binh an toàn số" trong chiến dịch Không Một Mình!');
+            const text = encodeURIComponent(`"${studentInfo.name}" đã đạt danh hiệu "Chiến binh an toàn số" trong chiến dịch Không Một Mình!`);
             window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank');
         };
-
-        const shareOnZalo = () => {
-             const url = window.location.href;
-             alert(`Sao chép link này và chia sẻ trên Zalo nhé: ${url}`);
-        };
-
+        const shareOnZalo = () => alert(`Sao chép link này và chia sẻ trên Zalo nhé: ${window.location.href}`);
         document.getElementById('share-fb').addEventListener('click', shareOnFacebook);
         document.getElementById('share-zalo').addEventListener('click', shareOnZalo);
-        document.getElementById('share-fb-2').addEventListener('click', shareOnFacebook);
-        document.getElementById('share-zalo-2').addEventListener('click', shareOnZalo);
-
-        // --- TẢI ẢNH ---
-        document.getElementById('logo').src = 'logo-tron.png';
-        document.getElementById('banner').src = 'Kmm-01.jpg';
     </script>
 </body>
 </html>
-
-
-
 
