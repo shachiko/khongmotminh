@@ -51,6 +51,25 @@
              margin-bottom: 0.5rem; /* mb-2 */
              font-size: 1.125rem; /* text-lg */
              font-weight: 600; /* font-semibold */
+         }
+        /* Thêm style cho bảng */
+        .theory-table {
+            width: 100%;
+            margin-top: 1rem;
+            border-collapse: collapse;
+        }
+        .theory-table th, .theory-table td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .theory-table th {
+            background-color: #f3f4f6;
+            font-weight: 700;
+        }
+        .theory-table td:first-child {
+            font-weight: 700;
+            width: 20%;
         }
 
     </style>
@@ -59,7 +78,7 @@
 
     <div id="app" class="container mx-auto p-4 max-w-4xl flex flex-col flex-grow">
 
-        <!-- Header --><header class="text-center my-8">
+        <header class="text-center my-8">
             <img id="logo" src="logo-tron.png" alt="Logo Không Một Mình" class="w-20 h-20 mx-auto mb-4 rounded-full"
                  onerror="this.onerror=null;this.src='https://placehold.co/100x100/FFFFFF/00529D?text=Logo';">
             <h1 class="text-4xl font-bold text-blue-800">Không Một Mình</h1>
@@ -67,44 +86,40 @@
         </header>
 
         <main id="main-content" class="flex-grow flex items-center justify-center">
-            <!-- Registration View --><div id="registration-view" class="bg-white p-8 rounded-xl shadow-lg text-center w-full">
-                 <img id="banner" src="Kmm-01.jpg" alt="Banner Chiến dịch" class="w-full h-64 object-cover rounded-lg mb-6"
-                       onerror="this.onerror=null;this.src='https://placehold.co/800x400/00529D/FFFFFF?text=Banner';">
+            <div id="registration-view" class="bg-white p-8 rounded-xl shadow-lg text-center w-full">
+                <img id="banner" src="Kmm-01.jpg" alt="Banner Chiến dịch" class="w-full h-64 object-cover rounded-lg mb-6"
+                     onerror="this.onerror=null;this.src='https://placehold.co/800x400/00529D/FFFFFF?text=Banner';">
                 <h2 class="text-2xl font-bold mb-4">Tham gia Thử thách Bảo vệ</h2>
                 <p class="mb-6">Hãy điền thông tin để bắt đầu bài kiểm tra hàng tuần và tích luỹ cúp nhé!</p>
                 <form id="registration-form" class="space-y-4 max-w-sm mx-auto">
                     <input type="text" id="student-name" placeholder="Họ và tên của bạn" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     <input type="email" id="student-email" placeholder="Email nhận chứng nhận" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     <input type="text" id="student-class" placeholder="Lớp" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                    <!-- Đổi chữ trên nút thành TUẦN 2 -->
                     <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">BẮT ĐẦU TUẦN 2</button>
                 </form>
             </div>
 
-            <!-- Theory View --><div id="theory-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
-                <h2 id="theory-title" class="text-2xl font-bold mb-4 text-center">Kiến thức Tuần 2</h2> <!-- Cập nhật tiêu đề mặc định -->
-                <div id="theory-content" class="text-left mb-6 space-y-4 max-h-[60vh] overflow-y-auto pr-4">
-                    <!-- Theory content will be dynamically inserted here -->
-                </div>
+            <div id="theory-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
+                <h2 id="theory-title" class="text-2xl font-bold mb-4 text-center">Kiến thức Tuần 2</h2> <div id="theory-content" class="text-left mb-6 space-y-4 max-h-[60vh] overflow-y-auto pr-4">
+                    </div>
                 <button id="start-quiz-btn" class="mt-6 w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">Đã hiểu, Bắt đầu làm bài</button>
             </div>
 
-            <!-- Quiz View --><div id="quiz-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
-                <h2 id="quiz-title" class="text-2xl font-bold mb-2 text-center">Bài kiểm tra Tuần 2</h2> <!-- Cập nhật tiêu đề mặc định -->
-                <p id="quiz-description" class="text-center mb-6">Chọn câu trả lời đúng nhất.</p>
+            <div id="quiz-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
+                <h2 id="quiz-title" class="text-2xl font-bold mb-2 text-center">Bài kiểm tra Tuần 2</h2> <p id="quiz-description" class="text-center mb-6">Chọn câu trả lời đúng nhất.</p>
                 <div id="quiz-container" class="space-y-6"></div>
                 <button id="submit-quiz" class="mt-8 w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400">Nộp bài</button>
             </div>
         </main>
     </div>
 
-    <!-- Footer --><footer class="text-center py-6 text-sm text-gray-500">
+    <footer class="text-center py-6 text-sm text-gray-500">
         <p>&copy; 2025 - Sản phẩm thuộc bản quyền của trường UK ACADEMY HA LONG</p>
     </footer>
 
-    <!-- Result Modal --><div id="result-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50">
+    <div id="result-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50">
         <div class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-md w-full relative transform transition-all scale-95 opacity-0" id="result-content">
-            <!-- Normal Result Content --><div id="normal-result-content">
+            <div id="normal-result-content">
                 <h2 id="result-title" class="text-3xl font-bold text-yellow-500 mb-4"></h2>
                 <div id="cup-container" class="my-4">
                     <svg class="w-32 h-32 mx-auto text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-1.707 1.707A1 1 0 003 15h14a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM8 16a2 2 0 114 0H8z"></path><path fill-rule="evenodd" d="M10 0a1 1 0 011 1v.065a8.002 8.002 0 015.657 5.657A1 1 0 0117 8v3.586l1.707 1.707a1 1 0 01-1.414 1.414L16 13.414V8a6.002 6.002 0 00-5-5.917V1a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
@@ -114,7 +129,7 @@
                 <button id="continue-btn-fail" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors mt-4">Tiếp tục làm lại</button>
             </div>
 
-            <!-- Robot Message Content (Initially hidden) --><div id="robot-message-content" class="hidden">
+            <div id="robot-message-content" class="hidden">
                 <img src="robot-uka.png" alt="Robot UKA Hạ Long" class="w-40 h-40 mx-auto mb-4 object-contain"
                      onerror="this.onerror=null;this.src='https://placehold.co/150x150/FFFFFF/00529D?text=Robot';">
                 <p id="robot-congrats-text" class="text-xl font-bold text-blue-700 mb-4"></p>
@@ -162,103 +177,152 @@
         // --- QUIZ DATA ---
         const quizzes = {
             week1: { // Dữ liệu vẫn giữ key 'week1' để code hiện tại chạy được
-                title: "CHỦ ĐỀ 2: NHẬN DIỆN MỐI NGUY", 
-                description: "Nhận biết tin giả, deepfake và tin nhắn lừa đảo.", 
+                // ===== BẮT ĐẦU NỘI DUNG THAY THẾ =====
+                title: "CHỦ ĐỀ 3: PHẢN XẠ AN TOÀN", 
+                description: "Hiểu rõ các tình huống nguy hiểm và Quy tắc 3B.", 
                 theory: `
                     <div class="theory-section">
-                        <h4 class="text-xl font-bold mb-3 text-purple-700">Các em hãy đọc câu chuyện dưới đây</h4>
-                        <p class="mb-4 bg-purple-100 p-3 rounded-lg">Một buổi sáng, Linh nhận tin nhắn: “Chúc mừng bạn trúng học bổng 10 triệu đồng từ chương trình Học sinh giỏi toàn quốc. Vui lòng bấm vào đường link dưới đây để nhận thưởng.” Vì tò mò, Linh bấm vào. Vài phút sau, toàn bộ tài khoản mạng xã hội của bạn bị chiếm quyền sử dụng.</p>
-                        <p class="font-bold">💭 Em có nhận ra đây là hình thức lừa đảo nào không?</p>
+                        <h4 class="text-xl font-bold mb-3 text-purple-700">Câu chuyện thật 👩‍💻 💬</h4>
+                        <p class="mb-4 bg-purple-100 p-3 rounded-lg">Một buổi tối, H. nhận được tin nhắn từ người lạ: “Nếu mày không gửi cho tao 2 triệu đồng, tao sẽ tung ảnh riêng tư của mày lên mạng.”<br>Hoảng sợ, H. không dám nói với ai, vội vàng chuyển tiền. Nhưng vài ngày sau, người đó lại tiếp tục đòi thêm. Lúc này, H. mới kể cho mẹ và giáo viên chủ nhiệm. Nhờ giữ lại tin nhắn, cơ quan công an đã truy ra kẻ tống tiền.</p>
+                        <p class="font-bold">💭 Em có nhận ra điều gì sai trong cách phản ứng ban đầu của bạn H. không?</p>
+                        <p class="mt-2">👉 Bạn đã quá sợ hãi và hành động một mình, khiến kẻ xấu càng lấn tới. Khi bị đe dọa, việc quan trọng không phải là “làm theo cho xong”, mà là biết phản xạ an toàn.</p>
                     </div>
 
                     <div class="theory-section">
-                        <h4 class="text-purple-700">1. Tin giả (Fake News)</h4>
-                        <p>🔎 Tin giả là những thông tin sai sự thật, được tạo ra để gây hiểu lầm, thu hút lượt xem hoặc lừa đảo người đọc. Chúng thường lan truyền rất nhanh trên mạng xã hội vì đánh vào sự tò mò hoặc sợ hãi của người xem.</p>
-                        <h5 class="font-semibold text-purple-600 mt-2">Dấu hiệu nhận biết tin giả:</h5>
-                        <ul class="list-disc list-inside space-y-1 pl-4">
-                            <li>📍 Tiêu đề giật gân, gây sốc.</li>
-                            <li>📍 Không ghi rõ nguồn hoặc nguồn mập mờ.</li>
-                            <li>📍 Hình ảnh không liên quan đến nội dung.</li>
-                        </ul>
-                        <p class="mt-2 italic">📰 Ví dụ: “Nam sinh mất tích do chơi game 72 tiếng” – <a href="https://vietnamnet.vn/game-thu-dai-loan-nam-chet-hang-tieng-dong-ho-trong-quan-net-217731.html" target="_blank" class="text-blue-600 hover:underline">Link tham khảo</a></p>
-                    </div>
-
-                    <div class="theory-section">
-                        <h4 class="text-purple-700">2. Deepfake – khi hình ảnh biết nói dối</h4>
-                        <p>Deepfake là video, hình ảnh hoặc giọng nói giả mạo được tạo bằng trí tuệ nhân tạo (AI). Kẻ xấu có thể ghép mặt một người vào video nhạy cảm, hoặc giả giọng để lừa người thân chuyển tiền.</p>
-                        <h5 class="font-semibold text-purple-600 mt-2">🎭 Deepfake nguy hiểm vì:</h5>
-                        <ul class="list-disc list-inside space-y-1 pl-4">
-                            <li>Nhìn – nghe rất giống thật, khó phân biệt bằng mắt thường.</li>
-                            <li>Có thể làm tổn thương danh dự, uy tín của người bị hại.</li>
-                        </ul>
-                        <h5 class="font-semibold text-purple-600 mt-2">Mẹo kiểm tra:</h5>
-                         <ul class="list-disc list-inside space-y-1 pl-4">
-                            <li>Nếu hình ảnh “giống thật nhưng hơi kỳ lạ” (ánh sáng sai, chuyển động méo, giọng nói không tự nhiên) → hãy dừng lại và xác minh.</li>
-                            <li>Dùng công cụ tìm kiếm hình ảnh ngược (Google Reverse Image Search) hoặc hỏi người lớn, thầy cô.</li>
-                        </ul>
-                        <p class="mt-2 font-bold text-red-600">⚠️ Đừng tin ngay cả khi “mắt thấy tai nghe” – hãy tin khi đã kiểm chứng!</p>
-                    </div>
-
-                     <div class="theory-section">
-                        <h4 class="text-purple-700">3. Tin nhắn lừa đảo (Phishing Messages)</h4>
-                        <p>Kẻ xấu thường gửi tin nhắn với nội dung hấp dẫn hoặc khẩn cấp để đánh lừa người nhận:</p>
+                        <h4 class="text-purple-700">1. Những tình huống nguy hiểm thường gặp</h4>
+                        <p>Không chỉ H., rất nhiều học sinh khác cũng có thể trở thành nạn nhân nếu thiếu cảnh giác. Dưới đây là các tình huống phổ biến mà em cần nhận diện sớm:</p>
+                        
+                        <h5 class="font-semibold text-purple-600 mt-2">🕵️ Tin nhắn đe dọa, tống tiền</h5>
+                        <p>Kẻ xấu dùng ảnh, video, hoặc thông tin cá nhân của em để ép buộc. Chúng có thể nói:</p>
                         <ul class="list-disc list-inside space-y-1 pl-4 italic">
-                            <li>📨 “Bạn trúng thưởng lớn!”</li>
-                            <li>📨 “Cần xác minh tài khoản ngay để tránh bị khóa.”</li>
-                            <li>📨 “Bấm vào đây nhận quà sinh nhật miễn phí.”</li>
+                            <li>“Tao có ảnh riêng tư của mày.”</li>
+                            <li>“Nếu không gửi tiền, tao sẽ đăng hết lên mạng.”</li>
                         </ul>
-                        <p class="mt-2">Sau khi người nhận nhấn vào liên kết, trang web giả mạo sẽ:</p>
+                        <p class="mt-2"><b>📎 Thực tế:</b> Có trường hợp học sinh bị dụ gửi ảnh cá nhân, rồi bị đe dọa đăng lên mạng để tống tiền. Nhiều bạn sợ hãi, làm theo yêu cầu, khiến tình hình nghiêm trọng hơn.</p>
+
+                        <h5 class="font-semibold text-purple-600 mt-2">👤 Người lạ giả danh người quen</h5>
+                        <p>Kẻ xấu tạo tài khoản giống hệt bạn bè hoặc giáo viên, sau đó nhắn:</p>
+                        <ul class="list-disc list-inside space-y-1 pl-4 italic">
+                            <li>“Cho mình mượn chút tiền nhé.”</li>
+                            <li>“Cô đang cần xác minh danh sách học sinh, em gửi mã OTP giúp cô.”</li>
+                        </ul>
+                        <p class="mt-2">📱 Nếu em thấy tin nhắn “lạ mà quen”, hãy gọi điện trực tiếp để xác minh – đừng tin vào hình đại diện hay tên hiển thị. Có thể chỉ mất vài giây, nhưng sẽ cứu em khỏi một vụ lừa đảo.</p>
+
+                        <h5 class="font-semibold text-purple-600 mt-2">💬 Bị nói xấu, bôi nhọ hoặc xúc phạm trên mạng</h5>
+                        <p>Đôi khi, có người đăng bài châm chọc, bịa chuyện, hoặc cắt ghép hình ảnh của em để chế giễu. Những hành động ấy được gọi là bắt nạt trực tuyến (cyberbullying).</p>
+                        <p class="mt-2">🧠 Tổn thương do bắt nạt mạng không nhìn thấy bằng mắt, nhưng nó gây đau đớn và sợ hãi thật sự – giống như bị tổn thương ngoài đời. Nếu gặp chuyện này, đừng im lặng – hãy tìm người giúp đỡ.</p>
+                    </div>
+
+                    <div class="theory-section">
+                        <h4 class="text-purple-700">2. Quy tắc 3B – Bình tĩnh – Báo người lớn – Bảo lưu chứng cứ</h4>
+                        <p>Đây là ba bước phản xạ quan trọng giúp em xử lý tình huống nguy hiểm một cách an toàn và thông minh.</p>
+
+                        <h5 class="font-semibold text-purple-600 mt-2">Bước 1: Bình tĩnh</h5>
+                        <p class="font-bold">“Dừng lại, hít sâu, nghĩ kỹ.”</p>
                         <ul class="list-disc list-inside space-y-1 pl-4">
-                            <li>Yêu cầu đăng nhập tài khoản,</li>
-                            <li>Gửi mã OTP,</li>
-                            <li>Hoặc cài phần mềm lấy cắp thông tin.</li>
-                         </ul>
-                         <p class="mt-2 font-bold text-red-600">🚫 Không bao giờ nhấn vào link lạ hoặc cung cấp mã OTP cho bất kỳ ai. Ngân hàng, trường học, hay Bộ Công an không bao giờ yêu cầu xác minh qua link nhắn tin.</p>
-                     </div>
-
-                     <div class="theory-section">
-                         <h4 class="text-purple-700">4. Ứng xử an toàn khi gặp thông tin đáng ngờ</h4>
-                         <p class="font-bold text-green-700">💡 Trước khi chia sẻ – hãy kiểm tra!</p>
-                         <ol class="list-decimal list-inside space-y-1 pl-4 mt-2">
-                             <li><b>Kiểm chứng nguồn:</b> Xem thông tin có xuất phát từ báo chính thống (Báo Chính phủ, VNExpress, Dân trí, VOV, ANTĐ...) hay không.</li>
-                             <li><b>Đọc kỹ nội dung:</b> Nếu quá bất thường, thiếu logic hoặc giật gân, khả năng cao là tin giả.</li>
-                             <li><b>Hỏi người đáng tin:</b> GVCN, cha mẹ hoặc bạn học giỏi công nghệ.</li>
-                             <li><b>Không lan truyền:</b> Nếu chưa chắc chắn, đừng chia sẻ.</li>
-                             <li><b>Báo cáo nội dung xấu:</b> Dùng tính năng “Báo cáo / Report” trên Facebook, TikTok, Zalo.</li>
-                         </ol>
-                     </div>
-
-                    <div class="theory-section">
-                        <h4 class="text-purple-700">💬 Câu hỏi gợi mở</h4>
-                        <ol class="list-decimal list-inside space-y-1 pl-4">
-                            <li>Theo em, vì sao con người dễ tin vào tin giả hơn là tin thật?</li>
-                            <li>Em đã từng thấy video deepfake hay tin giả nào lan nhanh trên mạng chưa? Em nhận ra nó bằng cách nào?</li>
-                            <li>Khi có bạn gửi tin “trúng thưởng”, em sẽ làm gì để không bị lừa?</li>
-                        </ol>
-                    </div>
-
-                    <div class="theory-section">
-                        <h4 class="text-xl font-bold mt-6 mb-3 text-green-700">🌈 Em cần ghi nhớ</h4>
-                        <ul class="list-disc list-inside space-y-1 pl-4 font-semibold">
-                            <li>Tin giả, deepfake và tin nhắn lừa đảo đều có thể làm hại danh dự, tài sản và uy tín của người khác.</li>
-                            <li>Hãy luôn kiểm chứng – cảnh giác – chia sẻ có trách nhiệm.</li>
-                            <li>Trước khi bấm “Chia sẻ”, hãy nhớ:</li>
+                            <li>Tuyệt đối không trả lời tin nhắn đe dọa, không cãi lại, không gửi ảnh, không chuyển tiền.</li>
+                            <li>Kẻ xấu thường muốn em sợ hãi để điều khiển – nên việc giữ bình tĩnh là cách làm chủ đầu tiên.</li>
+                            <li>Đọc kỹ tin nhắn: nếu thấy từ ngữ đe dọa, gấp gáp, hoặc kêu gọi hành động ngay – đó là dấu hiệu của lừa đảo hoặc uy hiếp tâm lý.</li>
                         </ul>
-                        <p class="mt-2 font-bold text-center text-lg">🧭 “Dừng lại một giây – để an toàn cho mọi người.”</p>
+                        <p class="mt-2"><b>📍 Mẹo:</b> Khi thấy tim đập nhanh, hãy tắt màn hình, uống nước, hít sâu 3 lần – rồi mới nghĩ đến bước tiếp theo.</p>
+
+                        <h5 class="font-semibold text-purple-600 mt-2">Bước 2: Báo người lớn</h5>
+                        <p class="font-bold">“Khi sợ hãi – hãy nói, đừng giấu.”</p>
+                        <ul class="list-disc list-inside space-y-1 pl-4">
+                            <li>Báo ngay cho cha mẹ, giáo viên chủ nhiệm, tổng phụ trách hoặc thầy cô tin cậy.</li>
+                            <li>Nếu tình huống nghiêm trọng (đe dọa, tống tiền, phát tán ảnh riêng tư) – gọi ngay 111, đường dây nóng quốc gia bảo vệ trẻ em (24/7 – miễn phí).</li>
+                            <li>Trường hợp khẩn cấp: báo công an hoặc cơ quan an ninh mạng địa phương.</li>
+                        </ul>
+                        <p class="mt-2 font-bold">📞 Số cần nhớ:</p>
+                        <ul class="list-disc list-inside space-y-1 pl-4">
+                            <li>111 – Bảo vệ trẻ em</li>
+                            <li>113 – Cảnh sát phản ứng nhanh</li>
+                            <li>1900 0368 – Hỗ trợ tư vấn tâm lý học đường</li>
+                        </ul>
+                        <p class="mt-2 italic">💬 Khi em nói ra, em không yếu đuối – mà là đang tự bảo vệ mình.</p>
+
+                        <h5 class="font-semibold text-purple-600 mt-2">Bước 3: Bảo lưu chứng cứ</h5>
+                        <p class="font-bold">“Giữ lại dấu vết để công lý bảo vệ em.”</p>
+                        <ul class="list-disc list-inside space-y-1 pl-4">
+                            <li>Chụp màn hình, lưu lại đường link, thời gian, nội dung tin nhắn.</li>
+                            <li>Không xóa cuộc trò chuyện, vì đó là bằng chứng giúp công an điều tra.</li>
+                            <li>Nếu là bài viết công khai, báo cáo (Report) và chặn tài khoản của người gây hại.</li>
+                        </ul>
+                        <p class="mt-2"><b>📎 Ví dụ thực tế:</b> Khi có người nhắn “Nếu không gửi tiền, tao tung ảnh mày”, em hãy chụp lại màn hình, chặn người đó, và báo cho thầy cô ngay. Việc em lưu giữ chứng cứ có thể giúp ngăn chặn nhiều vụ tội phạm khác.</p>
                     </div>
 
+                    <div class="theory-section">
+                        <h4 class="text-purple-700">3. Hỗ trợ bạn bè khi gặp nguy hiểm</h4>
+                        <p class="font-bold">“Đừng để bạn mình chiến đấu một mình trên mạng.”</p>
+                        <p>Nếu em thấy bạn bị xúc phạm, bôi nhọ hay tấn công online:</p>
+                        <ul class="list-disc list-inside space-y-1 pl-4">
+                            <li>Đừng im lặng. Im lặng có thể khiến bạn cảm thấy cô đơn.</li>
+                            <li>Đừng bình luận hùa theo, dù chỉ là đùa.</li>
+                            <li>An ủi bạn, giúp bạn báo cáo bài viết, hướng dẫn liên hệ thầy cô hoặc người lớn.</li>
+                        </ul>
+                        <p class="mt-2 italic">💬 Một lời hỏi han cũng là một chiếc phao cứu sinh trên mạng.</p>
+                    </div>
+
+                    <div class="theory-section">
+                        <h4 class="text-purple-700">4. Kỹ năng phản xạ an toàn nâng cao</h4>
+                        <p>“Phản xạ an toàn” không phải là biết đánh trả, mà là biết bình tĩnh – biết dừng lại – biết tìm người trợ giúp đúng lúc. Ngoài 3B, em có thể áp dụng thêm 3 mẹo “SMART”:</p>
+                        <table class="theory-table">
+                            <thead>
+                                <tr>
+                                    <th>Kỹ năng</th>
+                                    <th>Ý nghĩa</th>
+                                    <th>Ứng dụng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>S – Stop (Dừng lại)</td>
+                                    <td>Không phản ứng ngay khi hoảng sợ</td>
+                                    <td>Tắt điện thoại, ra khỏi ứng dụng để trấn tĩnh</td>
+                                </tr>
+                                <tr>
+                                    <td>M – Move (Chia sẻ)</td>
+                                    <td>Tìm người tin cậy để kể lại</td>
+                                    <td>Gọi thầy cô, cha mẹ, hoặc bạn thân</td>
+                                </tr>
+                                <tr>
+                                    <td>A – Archive (Lưu chứng cứ)</td>
+                                    <td>Giữ mọi hình ảnh, đoạn chat</td>
+                                    <td>Chụp màn hình, gửi vào thư mục an toàn</td>
+                                </tr>
+                                <tr>
+                                    <td>R – Report (Báo cáo)</td>
+                                    <td>Báo lên mạng xã hội hoặc công an</td>
+                                    <td>Dùng tính năng “Report”, gọi 111</td>
+                                </tr>
+                                <tr>
+                                    <td>T – Trust (Tin tưởng)</td>
+                                    <td>Tin rằng mình có thể được giúp</td>
+                                    <td>Không tự chịu đựng hay giấu giếm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="mt-4">“Phản xạ an toàn” không chỉ là kỹ năng xử lý tình huống, mà còn là sức mạnh tinh thần – giúp em giữ bình tĩnh, sáng suốt, và tin tưởng rằng mình không một mình.</p>
+                        <ul class="list-disc list-inside space-y-1 pl-4 mt-2 font-semibold">
+                            <li>Bình tĩnh để không sập bẫy.</li>
+                            <li>Báo người lớn để không đơn độc.</li>
+                            <li>Giữ chứng cứ để bảo vệ công lý.</li>
+                        </ul>
+                    </div>
+                    
                     <div class="theory-section text-center">
-                        <h4 class="text-xl font-bold mt-6 mb-3 text-blue-800">🌐 THÔNG ĐIỆP TUẦN 2 – “NHẬN DIỆN MỐI NGUY”</h4>
-                        <p class="mt-2 font-bold text-blue-800 text-lg">“Không tin vội, không chia sẻ bừa.<br>Mỗi cú click cẩn trọng – là một hành động bảo vệ cộng đồng mạng.”</p>
+                        <h4 class="text-xl font-bold mt-6 mb-3 text-blue-800">🌈 Thông điệp tuần 3 – “Phản xạ an toàn”</h4>
+                        <p class="mt-2 font-bold text-blue-800 text-lg">“Khi gặp nguy hiểm – hãy phản xạ an toàn, không phản ứng vội.<br>Mỗi hành động bình tĩnh là một tấm khiên bảo vệ bản thân và người khác.”</p>
                     </div>
                 `,
                 questions: [ 
-                    { type: 'mcq', question: "Câu 1: Dấu hiệu của tin giả là:", options: ["A. Có nguồn rõ", "B. Giật tít gây sốc, thiếu kiểm chứng", "C. Trích dẫn đầy đủ", "D. Có dấu xác thực"], answer: "B. Giật tít gây sốc, thiếu kiểm chứng" },
-                    { type: 'mcq', question: "Câu 2: Khi nhận tin nhắn trúng thưởng, em nên:", options: ["A. Bấm link ngay", "B. Chia sẻ bạn bè", "C. Báo cha mẹ/GVCN hoặc xoá tin nhắn", "D. Điền thông tin cá nhân"], answer: "C. Báo cha mẹ/GVCN hoặc xoá tin nhắn" },
-                    { type: 'mcq', question: "Câu 3: Deepfake là:", options: ["A. Ảnh hoặc video bị chỉnh sửa giả mạo người thật", "B. Video chất lượng cao", "C. Video vui", "D. File virus"], answer: "A. Ảnh hoặc video bị chỉnh sửa giả mạo người thật" },
-                    { type: 'mcq', question: "Câu 4: Khi người lạ kết bạn qua mạng, em nên:", options: ["A. Chấp nhận ngay", "B. Kiểm tra thông tin, bạn chung trước khi đồng ý", "C. Trò chuyện thêm", "D. Gửi ảnh"], answer: "B. Kiểm tra thông tin, bạn chung trước khi đồng ý" },
-                    { type: 'mcq', question: "Câu 5: Khi phát hiện tin giả lan truyền, em nên:", options: ["A. Chia sẻ thêm để cảnh báo", "B. Báo cáo bài viết và bình luận “tin giả”", "C. Không làm gì", "D. Tạo bài phản đối"], answer: "B. Báo cáo bài viết và bình luận “tin giả”" }
+                    { type: 'mcq', question: "Câu 1. Khi nhận được tin nhắn đe dọa “Nếu không gửi tiền, tao tung ảnh của mày lên mạng”, em nên làm gì đầu tiên?", options: ["A. Trả lời để xin họ xóa ảnh", "B. Xóa tin nhắn cho đỡ sợ", "C. Bình tĩnh, chụp màn hình làm bằng chứng", "D. Chuyển tiền để tránh bị tung ảnh"], answer: "C. Bình tĩnh, chụp màn hình làm bằng chứng" },
+                    { type: 'mcq', question: "Câu 2. Hành động nào sau đây không đúng khi giúp bạn bị nói xấu trên mạng?", options: ["A. Báo cáo bài viết sai sự thật", "B. Động viên, khuyên bạn tìm người giúp đỡ", "C. Bình luận lại để “bênh” bạn bằng lời lẽ gay gắt", "D. Giữ lại hình ảnh làm bằng chứng"], answer: "C. Bình luận lại để “bênh” bạn bằng lời lẽ gay gắt" },
+                    { type: 'mcq', question: "Câu 3. Quy tắc 3B trong bài “Phản xạ an toàn” gồm những gì?", options: ["A. Bình tĩnh – Bỏ qua – Báo người lạ", "B. Bình tĩnh – Báo người lớn – Bảo lưu chứng cứ", "C. Bỏ chạy – Báo công an – Bật mạng xã hội", "D. Bình tĩnh – Bảo mật – Báo cảnh sát"], answer: "B. Bình tĩnh – Báo người lớn – Bảo lưu chứng cứ" },
+                    { type: 'mcq', question: "Câu 4. Số điện thoại đường dây nóng bảo vệ trẻ em mà học sinh có thể gọi khi bị đe dọa hoặc quấy rối là số nào?", options: ["A. 111", "B. 113", "C. 115", "D. 1900 0368"], answer: "A. 111" },
+                    { type: 'mcq', question: "Câu 5. Vì sao không nên xóa tin nhắn hoặc bài viết khi bị đe dọa, tống tiền?", options: ["A. Vì xóa sẽ khiến người kia tức giận hơn", "B. Vì đó là bằng chứng quan trọng để báo cơ quan chức năng", "C. Vì mạng xã hội không cho phép xóa tin", "D. Vì bạn bè có thể cần xem lại"], answer: "B. Vì đó là bằng chứng quan trọng để báo cơ quan chức năng" }
                 ]
+                // ===== KẾT THÚC NỘI DUNG THAY THẾ =====
             },
         };
 
@@ -465,4 +529,3 @@
     </script>
 </body>
 </html>
-
