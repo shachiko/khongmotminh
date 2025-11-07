@@ -52,25 +52,6 @@
              font-size: 1.125rem; /* text-lg */
              font-weight: 600; /* font-semibold */
          }
-        /* Thêm style cho bảng */
-        .theory-table {
-            width: 100%;
-            margin-top: 1rem;
-            border-collapse: collapse;
-        }
-        .theory-table th, .theory-table td {
-            border: 1px solid #e5e7eb;
-            padding: 0.75rem;
-            text-align: left;
-        }
-        .theory-table th {
-            background-color: #f3f4f6;
-            font-weight: 700;
-        }
-        .theory-table td:first-child {
-            font-weight: 700;
-            width: 20%;
-        }
 
     </style>
 </head>
@@ -95,18 +76,18 @@
                     <input type="text" id="student-name" placeholder="Họ và tên của bạn" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     <input type="email" id="student-email" placeholder="Email nhận chứng nhận" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     <input type="text" id="student-class" placeholder="Lớp" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">BẮT ĐẦU TUẦN 3</button>
+                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">BẮT ĐẦU TUẦN 4</button>
                 </form>
             </div>
 
             <div id="theory-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
-                <h2 id="theory-title" class="text-2xl font-bold mb-4 text-center">Kiến thức Tuần 3</h2> <div id="theory-content" class="text-left mb-6 space-y-4 max-h-[60vh] overflow-y-auto pr-4">
+                <h2 id="theory-title" class="text-2xl font-bold mb-4 text-center">Kiến thức Tuần 4</h2> <div id="theory-content" class="text-left mb-6 space-y-4 max-h-[60vh] overflow-y-auto pr-4">
                     </div>
                 <button id="start-quiz-btn" class="mt-6 w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">Đã hiểu, Bắt đầu làm bài</button>
             </div>
 
             <div id="quiz-view" class="hidden bg-white p-8 rounded-xl shadow-lg w-full">
-                <h2 id="quiz-title" class="text-2xl font-bold mb-2 text-center">Bài kiểm tra Tuần 3</h2> <p id="quiz-description" class="text-center mb-6">Chọn câu trả lời đúng nhất.</p>
+                <h2 id="quiz-title" class="text-2xl font-bold mb-2 text-center">Bài kiểm tra Tuần 4</h2> <p id="quiz-description" class="text-center mb-6">Chọn câu trả lời đúng nhất.</p>
                 <div id="quiz-container" class="space-y-6"></div>
                 <button id="submit-quiz" class="mt-8 w-full bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400">Nộp bài</button>
             </div>
@@ -169,7 +150,7 @@
 
         // State
         let studentInfo = { name: '', email: '', class: '' };
-        // Giữ nguyên key 'week1' vì chỉ có 1 bộ dữ liệu, nhưng sẽ gửi 'week2' sang Apps Script
+        // Giữ nguyên key 'week1' vì chỉ có 1 bộ dữ liệu, nhưng sẽ gửi 'week4' sang Apps Script
         let currentQuizKey = 'week1'; 
         let currentQuiz = {};
         let userAnswers = [];
@@ -177,152 +158,97 @@
         // --- QUIZ DATA ---
         const quizzes = {
             week1: { // Dữ liệu vẫn giữ key 'week1' để code hiện tại chạy được
-                // ===== BẮT ĐẦU NỘI DUNG THAY THẾ =====
-                title: "CHỦ ĐỀ 3: PHẢN XẠ AN TOÀN", 
-                description: "Hiểu rõ các tình huống nguy hiểm và Quy tắc 3B.", 
+                // ===== BẮT ĐẦU NỘI DUNG THAY THẾ TUẦN 4 =====
+                title: "CHỦ ĐỀ 4: CHIA SẺ KIẾN THỨC", 
+                description: "Hiểu rõ nguyên tắc 3Đ và trách nhiệm của Công dân số.", 
                 theory: `
                     <div class="theory-section">
-                        <h4 class="text-xl font-bold mb-3 text-purple-700">Câu chuyện thật 👩‍💻 💬</h4>
-                        <p class="mb-4 bg-purple-100 p-3 rounded-lg">Một buổi tối, H. nhận được tin nhắn từ người lạ: “Nếu mày không gửi cho tao 2 triệu đồng, tao sẽ tung ảnh riêng tư của mày lên mạng.”<br>Hoảng sợ, H. không dám nói với ai, vội vàng chuyển tiền. Nhưng vài ngày sau, người đó lại tiếp tục đòi thêm. Lúc này, H. mới kể cho mẹ và giáo viên chủ nhiệm. Nhờ giữ lại tin nhắn, cơ quan công an đã truy ra kẻ tống tiền.</p>
-                        <p class="font-bold">💭 Em có nhận ra điều gì sai trong cách phản ứng ban đầu của bạn H. không?</p>
-                        <p class="mt-2">👉 Bạn đã quá sợ hãi và hành động một mình, khiến kẻ xấu càng lấn tới. Khi bị đe dọa, việc quan trọng không phải là “làm theo cho xong”, mà là biết phản xạ an toàn.</p>
+                        <h4 class="text-xl font-bold mb-3 text-purple-700">🌈 Sau ba tuần đồng hành, em đã biết cách:</h4>
+                        <ul class="list-disc list-inside space-y-1 pl-4">
+                            <li>Giữ an toàn cho bản thân,</li>
+                            <li>Nhận diện nguy cơ và lừa đảo,</li>
+                            <li>Phản xạ đúng khi gặp tình huống xấu.</li>
+                        </ul>
+                        <p class="mt-2">Giờ đây, em đã trở thành “chiến binh số” – người có thể lan tỏa giá trị tích cực, bảo vệ bạn bè và cộng đồng mạng.</p>
                     </div>
 
                     <div class="theory-section">
-                        <h4 class="text-purple-700">1. Những tình huống nguy hiểm thường gặp</h4>
-                        <p>Không chỉ H., rất nhiều học sinh khác cũng có thể trở thành nạn nhân nếu thiếu cảnh giác. Dưới đây là các tình huống phổ biến mà em cần nhận diện sớm:</p>
+                        <h4 class="text-purple-700">1. Nguyên tắc 3Đ khi chia sẻ: Đúng – Đủ – Đẹp</h4>
+                        <p class="italic">“Chia sẻ là quyền, nhưng chia sẻ thế nào cho có trách nhiệm là lựa chọn của mỗi người.”</p>
                         
-                        <h5 class="font-semibold text-purple-600 mt-2">🕵️ Tin nhắn đe dọa, tống tiền</h5>
-                        <p>Kẻ xấu dùng ảnh, video, hoặc thông tin cá nhân của em để ép buộc. Chúng có thể nói:</p>
-                        <ul class="list-disc list-inside space-y-1 pl-4 italic">
-                            <li>“Tao có ảnh riêng tư của mày.”</li>
-                            <li>“Nếu không gửi tiền, tao sẽ đăng hết lên mạng.”</li>
+                        <h5 class="font-semibold text-purple-600 mt-2">a. Đúng – Xác thực nguồn tin</h5>
+                        <p>Trước khi đăng hoặc chia sẻ bất cứ điều gì, hãy kiểm chứng thông tin:</p>
+                        <ul class="list-disc list-inside space-y-1 pl-4">
+                            <li>Bài viết đến từ trang chính thống hay tài khoản ảo?</li>
+                            <li>Có dẫn nguồn báo, cơ quan hoặc người thật không?</li>
+                            <li>Ảnh, video có thể bị cắt ghép hoặc lấy từ nơi khác không?</li>
                         </ul>
-                        <p class="mt-2"><b>📎 Thực tế:</b> Có trường hợp học sinh bị dụ gửi ảnh cá nhân, rồi bị đe dọa đăng lên mạng để tống tiền. Nhiều bạn sợ hãi, làm theo yêu cầu, khiến tình hình nghiêm trọng hơn.</p>
+                        <p class="mt-2 italic"><b>📎 Ví dụ:</b> Thấy bài “Nam sinh mất tích vì game” → Đừng vội chia sẻ! Hãy kiểm tra trên các báo uy tín như VnExpress, Dân trí, VOV…</p>
+                        <p class="mt-2 font-bold">🧠 Một cú “share” sai có thể khiến tin giả lan nhanh gấp 10 lần tin thật.</p>
 
-                        <h5 class="font-semibold text-purple-600 mt-2">👤 Người lạ giả danh người quen</h5>
-                        <p>Kẻ xấu tạo tài khoản giống hệt bạn bè hoặc giáo viên, sau đó nhắn:</p>
-                        <ul class="list-disc list-inside space-y-1 pl-4 italic">
-                            <li>“Cho mình mượn chút tiền nhé.”</li>
-                            <li>“Cô đang cần xác minh danh sách học sinh, em gửi mã OTP giúp cô.”</li>
+                        <h5 class="font-semibold text-purple-600 mt-2">b. Đủ – Nêu rõ và trung thực thông tin</h5>
+                        <p>Nhiều bạn chỉ cắt một phần hình, trích một câu, khiến nội dung mất nghĩa hoặc bị hiểu sai. Chia sẻ đủ thông tin, đủ bối cảnh sẽ giúp người đọc hiểu đúng.</p>
+                        <p class="mt-2 italic"><b>📎 Ví dụ:</b></p>
+                        <ul class="list-disc list-inside space-y-1 pl-4">
+                            <li>❌ “Bạn A bị công an bắt!” (thiếu thông tin → hiểu lầm)</li>
+                            <li>✅ “Bạn A được mời làm việc vì liên quan vụ hack tài khoản, hiện đã an toàn.”</li>
                         </ul>
-                        <p class="mt-2">📱 Nếu em thấy tin nhắn “lạ mà quen”, hãy gọi điện trực tiếp để xác minh – đừng tin vào hình đại diện hay tên hiển thị. Có thể chỉ mất vài giây, nhưng sẽ cứu em khỏi một vụ lừa đảo.</p>
+                        <p class="mt-2 italic">💬 Hãy chia sẻ như một người có trách nhiệm, không phải để “gây chú ý”.</p>
 
-                        <h5 class="font-semibold text-purple-600 mt-2">💬 Bị nói xấu, bôi nhọ hoặc xúc phạm trên mạng</h5>
-                        <p>Đôi khi, có người đăng bài châm chọc, bịa chuyện, hoặc cắt ghép hình ảnh của em để chế giễu. Những hành động ấy được gọi là bắt nạt trực tuyến (cyberbullying).</p>
-                        <p class="mt-2">🧠 Tổn thương do bắt nạt mạng không nhìn thấy bằng mắt, nhưng nó gây đau đớn và sợ hãi thật sự – giống như bị tổn thương ngoài đời. Nếu gặp chuyện này, đừng im lặng – hãy tìm người giúp đỡ.</p>
+                        <h5 class="font-semibold text-purple-600 mt-2">c. Đẹp – Dùng ngôn từ tích cực, tôn trọng người khác</h5>
+                        <p>Mạng xã hội là nơi thể hiện bản thân, nhưng tôn trọng vẫn là phép lịch sự cơ bản nhất.</p>
+                        <ul class="list-disc list-inside space-y-1 pl-4">
+                            <li>Không dùng lời châm chọc, xúc phạm, bình luận ác ý.</li>
+                            <li>Biết cảm ơn, xin lỗi, động viên và lan tỏa điều tốt.</li>
+                            <li>Nếu bất đồng, hãy tranh luận văn minh, không xúc phạm.</li>
+                        </ul>
+                        <p class="mt-2 italic"><b>📎 Ví dụ:</b></p>
+                        <ul class="list-disc list-inside space-y-1 pl-4">
+                            <li>❌ “Cẩn thận đi, ai cũng có thể bị lừa!”</li>
+                            <li>✅ “Hãy kiểm tra nguồn tin trước khi bấm vào đường link nhé!”</li>
+                        </ul>
                     </div>
 
                     <div class="theory-section">
-                        <h4 class="text-purple-700">2. Quy tắc 3B – Bình tĩnh – Báo người lớn – Bảo lưu chứng cứ</h4>
-                        <p>Đây là ba bước phản xạ quan trọng giúp em xử lý tình huống nguy hiểm một cách an toàn và thông minh.</p>
-
-                        <h5 class="font-semibold text-purple-600 mt-2">Bước 1: Bình tĩnh</h5>
-                        <p class="font-bold">“Dừng lại, hít sâu, nghĩ kỹ.”</p>
-                        <ul class="list-disc list-inside space-y-1 pl-4">
-                            <li>Tuyệt đối không trả lời tin nhắn đe dọa, không cãi lại, không gửi ảnh, không chuyển tiền.</li>
-                            <li>Kẻ xấu thường muốn em sợ hãi để điều khiển – nên việc giữ bình tĩnh là cách làm chủ đầu tiên.</li>
-                            <li>Đọc kỹ tin nhắn: nếu thấy từ ngữ đe dọa, gấp gáp, hoặc kêu gọi hành động ngay – đó là dấu hiệu của lừa đảo hoặc uy hiếp tâm lý.</li>
-                        </ul>
-                        <p class="mt-2"><b>📍 Mẹo:</b> Khi thấy tim đập nhanh, hãy tắt màn hình, uống nước, hít sâu 3 lần – rồi mới nghĩ đến bước tiếp theo.</p>
-
-                        <h5 class="font-semibold text-purple-600 mt-2">Bước 2: Báo người lớn</h5>
-                        <p class="font-bold">“Khi sợ hãi – hãy nói, đừng giấu.”</p>
-                        <ul class="list-disc list-inside space-y-1 pl-4">
-                            <li>Báo ngay cho cha mẹ, giáo viên chủ nhiệm, tổng phụ trách hoặc thầy cô tin cậy.</li>
-                            <li>Nếu tình huống nghiêm trọng (đe dọa, tống tiền, phát tán ảnh riêng tư) – gọi ngay 111, đường dây nóng quốc gia bảo vệ trẻ em (24/7 – miễn phí).</li>
-                            <li>Trường hợp khẩn cấp: báo công an hoặc cơ quan an ninh mạng địa phương.</li>
-                        </ul>
-                        <p class="mt-2 font-bold">📞 Số cần nhớ:</p>
-                        <ul class="list-disc list-inside space-y-1 pl-4">
-                            <li>111 – Bảo vệ trẻ em</li>
-                            <li>113 – Cảnh sát phản ứng nhanh</li>
-                            <li>1900 0368 – Hỗ trợ tư vấn tâm lý học đường</li>
-                        </ul>
-                        <p class="mt-2 italic">💬 Khi em nói ra, em không yếu đuối – mà là đang tự bảo vệ mình.</p>
-
-                        <h5 class="font-semibold text-purple-600 mt-2">Bước 3: Bảo lưu chứng cứ</h5>
-                        <p class="font-bold">“Giữ lại dấu vết để công lý bảo vệ em.”</p>
-                        <ul class="list-disc list-inside space-y-1 pl-4">
-                            <li>Chụp màn hình, lưu lại đường link, thời gian, nội dung tin nhắn.</li>
-                            <li>Không xóa cuộc trò chuyện, vì đó là bằng chứng giúp công an điều tra.</li>
-                            <li>Nếu là bài viết công khai, báo cáo (Report) và chặn tài khoản của người gây hại.</li>
-                        </ul>
-                        <p class="mt-2"><b>📎 Ví dụ thực tế:</b> Khi có người nhắn “Nếu không gửi tiền, tao tung ảnh mày”, em hãy chụp lại màn hình, chặn người đó, và báo cho thầy cô ngay. Việc em lưu giữ chứng cứ có thể giúp ngăn chặn nhiều vụ tội phạm khác.</p>
+                        <h4 class="text-purple-700">2. Trách nhiệm của Công dân số</h4>
+                        <p class="italic">“Công dân tốt ngoài đời – cũng cần là công dân tốt trên mạng.”</p>
+                        <p>Mỗi học sinh UKA là một đại sứ an toàn số, có 3 trách nhiệm chính:</p>
+                        <ol class="list-decimal list-inside space-y-1 pl-4">
+                            <li><b>Bảo vệ:</b> Giữ kín thông tin cá nhân, không lan truyền nội dung xấu độc.</li>
+                            <li><b>Tôn trọng:</b> Không đăng hình, chia sẻ câu chuyện riêng tư của người khác khi chưa được đồng ý.</li>
+                            <li><b>Lan tỏa:</b> Chia sẻ điều tích cực, khuyến khích người khác ứng xử tử tế và cùng bảo vệ môi trường mạng lành mạnh.</li>
+                        </ol>
+                        <p class="mt-2 italic">📎 Nếu thấy nội dung độc hại, đừng bình luận hay chia sẻ – hãy báo cáo (report) để nền tảng xử lý.</p>
                     </div>
 
                     <div class="theory-section">
-                        <h4 class="text-purple-700">3. Hỗ trợ bạn bè khi gặp nguy hiểm</h4>
-                        <p class="font-bold">“Đừng để bạn mình chiến đấu một mình trên mạng.”</p>
-                        <p>Nếu em thấy bạn bị xúc phạm, bôi nhọ hay tấn công online:</p>
+                        <h4 class="text-purple-700">3. Hành động cuối chiến dịch</h4>
+                        <h5 class="font-semibold text-purple-600 mt-2">📝 Thử thách “Lan tỏa an toàn số”</h5>
                         <ul class="list-disc list-inside space-y-1 pl-4">
-                            <li>Đừng im lặng. Im lặng có thể khiến bạn cảm thấy cô đơn.</li>
-                            <li>Đừng bình luận hùa theo, dù chỉ là đùa.</li>
-                            <li>An ủi bạn, giúp bạn báo cáo bài viết, hướng dẫn liên hệ thầy cô hoặc người lớn.</li>
+                            <li>Viết một thông điệp ngắn (1–2 câu) hoặc quay một video 30–60 giây với chủ đề: “Không Một Mình – Cùng nhau an toàn trực tuyến.”</li>
+                            <li>Đăng lên trang cá nhân kèm hashtag #KhongMotMinh #Niemtinso #AnToanTrucTuyen #UKAHL</li>
+                            <li>Đổi avatar khung chiến dịch để thể hiện tinh thần “Chiến binh số”.</li>
                         </ul>
-                        <p class="mt-2 italic">💬 Một lời hỏi han cũng là một chiếc phao cứu sinh trên mạng.</p>
+                        <p class="mt-2 italic"><b>📸 Gợi ý:</b> “An toàn số không chỉ là kỹ năng – mà là cách ta đối xử tử tế với nhau trên mạng.”</p>
+                        
+                        <h5 class="font-semibold text-purple-600 mt-2">🌻 Bài học tổng kết</h5>
+                        <p>Khi mỗi người hành động Đúng – Đủ – Đẹp, cộng đồng mạng sẽ trở thành một ngôi nhà an toàn, thân thiện và đầy lòng nhân ái.</p>
+                        <p class="mt-2 italic">💬 “Không ai an toàn nếu đi một mình – nhưng khi chúng ta cùng nhau, mạng Internet sẽ trở nên đáng tin cậy hơn.”</p>
                     </div>
 
-                    <div class="theory-section">
-                        <h4 class="text-purple-700">4. Kỹ năng phản xạ an toàn nâng cao</h4>
-                        <p>“Phản xạ an toàn” không phải là biết đánh trả, mà là biết bình tĩnh – biết dừng lại – biết tìm người trợ giúp đúng lúc. Ngoài 3B, em có thể áp dụng thêm 3 mẹo “SMART”:</p>
-                        <table class="theory-table">
-                            <thead>
-                                <tr>
-                                    <th>Kỹ năng</th>
-                                    <th>Ý nghĩa</th>
-                                    <th>Ứng dụng</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>S – Stop (Dừng lại)</td>
-                                    <td>Không phản ứng ngay khi hoảng sợ</td>
-                                    <td>Tắt điện thoại, ra khỏi ứng dụng để trấn tĩnh</td>
-                                </tr>
-                                <tr>
-                                    <td>M – Move (Chia sẻ)</td>
-                                    <td>Tìm người tin cậy để kể lại</td>
-                                    <td>Gọi thầy cô, cha mẹ, hoặc bạn thân</td>
-                                </tr>
-                                <tr>
-                                    <td>A – Archive (Lưu chứng cứ)</td>
-                                    <td>Giữ mọi hình ảnh, đoạn chat</td>
-                                    <td>Chụp màn hình, gửi vào thư mục an toàn</td>
-                                </tr>
-                                <tr>
-                                    <td>R – Report (Báo cáo)</td>
-                                    <td>Báo lên mạng xã hội hoặc công an</td>
-                                    <td>Dùng tính năng “Report”, gọi 111</td>
-                                </tr>
-                                <tr>
-                                    <td>T – Trust (Tin tưởng)</td>
-                                    <td>Tin rằng mình có thể được giúp</td>
-                                    <td>Không tự chịu đựng hay giấu giếm</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p class="mt-4">“Phản xạ an toàn” không chỉ là kỹ năng xử lý tình huống, mà còn là sức mạnh tinh thần – giúp em giữ bình tĩnh, sáng suốt, và tin tưởng rằng mình không một mình.</p>
-                        <ul class="list-disc list-inside space-y-1 pl-4 mt-2 font-semibold">
-                            <li>Bình tĩnh để không sập bẫy.</li>
-                            <li>Báo người lớn để không đơn độc.</li>
-                            <li>Giữ chứng cứ để bảo vệ công lý.</li>
-                        </ul>
-                    </div>
-                    
                     <div class="theory-section text-center">
-                        <h4 class="text-xl font-bold mt-6 mb-3 text-blue-800">🌈 Thông điệp tuần 3 – “Phản xạ an toàn”</h4>
-                        <p class="mt-2 font-bold text-blue-800 text-lg">“Khi gặp nguy hiểm – hãy phản xạ an toàn, không phản ứng vội.<br>Mỗi hành động bình tĩnh là một tấm khiên bảo vệ bản thân và người khác.”</p>
+                        <h4 class="text-xl font-bold mt-6 mb-3 text-blue-800">🌈 Thông điệp tuần 4 – “Chia sẻ kiến thức”</h4>
+                        <p class="mt-2 font-bold text-blue-800 text-lg">🌻 “Chia sẻ điều đúng, lan tỏa điều tốt.<br>Cùng nhau biến Internet thành nơi kết nối tử tế.”</p>
                     </div>
                 `,
                 questions: [ 
-                    { type: 'mcq', question: "Câu 1. Khi nhận được tin nhắn đe dọa “Nếu không gửi tiền, tao tung ảnh của mày lên mạng”, em nên làm gì đầu tiên?", options: ["A. Trả lời để xin họ xóa ảnh", "B. Xóa tin nhắn cho đỡ sợ", "C. Bình tĩnh, chụp màn hình làm bằng chứng", "D. Chuyển tiền để tránh bị tung ảnh"], answer: "C. Bình tĩnh, chụp màn hình làm bằng chứng" },
-                    { type: 'mcq', question: "Câu 2. Hành động nào sau đây không đúng khi giúp bạn bị nói xấu trên mạng?", options: ["A. Báo cáo bài viết sai sự thật", "B. Động viên, khuyên bạn tìm người giúp đỡ", "C. Bình luận lại để “bênh” bạn bằng lời lẽ gay gắt", "D. Giữ lại hình ảnh làm bằng chứng"], answer: "C. Bình luận lại để “bênh” bạn bằng lời lẽ gay gắt" },
-                    { type: 'mcq', question: "Câu 3. Quy tắc 3B trong bài “Phản xạ an toàn” gồm những gì?", options: ["A. Bình tĩnh – Bỏ qua – Báo người lạ", "B. Bình tĩnh – Báo người lớn – Bảo lưu chứng cứ", "C. Bỏ chạy – Báo công an – Bật mạng xã hội", "D. Bình tĩnh – Bảo mật – Báo cảnh sát"], answer: "B. Bình tĩnh – Báo người lớn – Bảo lưu chứng cứ" },
-                    { type: 'mcq', question: "Câu 4. Số điện thoại đường dây nóng bảo vệ trẻ em mà học sinh có thể gọi khi bị đe dọa hoặc quấy rối là số nào?", options: ["A. 111", "B. 113", "C. 115", "D. 1900 0368"], answer: "A. 111" },
-                    { type: 'mcq', question: "Câu 5. Vì sao không nên xóa tin nhắn hoặc bài viết khi bị đe dọa, tống tiền?", options: ["A. Vì xóa sẽ khiến người kia tức giận hơn", "B. Vì đó là bằng chứng quan trọng để báo cơ quan chức năng", "C. Vì mạng xã hội không cho phép xóa tin", "D. Vì bạn bè có thể cần xem lại"], answer: "B. Vì đó là bằng chứng quan trọng để báo cơ quan chức năng" }
+                    { type: 'mcq', question: "Câu 1. Nguyên tắc “3Đ” trong chia sẻ thông tin trên mạng có nghĩa là gì?", options: ["A. Đúng – Đủ – Đẹp", "B. Đọc – Đăng – Đính chính", "C. Đúng – Đẹp – Đơn giản", "D. Đọc – Đánh giá – Đăng lại"], answer: "A. Đúng – Đủ – Đẹp" },
+                    { type: 'mcq', question: "Câu 2. Hành động nào sau đây thể hiện trách nhiệm của công dân số?", options: ["A. Chia sẻ ảnh bạn bè khi chưa được phép", "B. Đăng lại tin “sốc” để cảnh báo người khác", "C. Báo cáo (Report) khi thấy nội dung độc hại", "D. Bình luận chế giễu để mọi người chú ý"], answer: "C. Báo cáo (Report) khi thấy nội dung độc hại" },
+                    { type: 'mcq', question: "Câu 3. Khi muốn đăng bài chia sẻ về an toàn số, em nên chọn cách viết nào?", options: ["A. “Cẩn thận, ai cũng có thể bị lừa!”", "B. “Mạng xã hội toàn tin giả, đừng tin ai hết!”", "C. “Hãy kiểm tra nguồn tin trước khi bấm vào đường link nhé!”", "D. “Chia sẻ nhanh cho mọi người, kẻo muộn!”"], answer: "C. “Hãy kiểm tra nguồn tin trước khi bấm vào đường link nhé!”" },
+                    { type: 'mcq', question: "Câu 4. Trong thử thách cuối chiến dịch, học sinh được khuyến khích làm gì để lan tỏa tinh thần “Không Một Mình”?", options: ["A. Đăng video 30–60 giây hoặc thông điệp an toàn số kèm hashtag", "B. Viết bài phê phán người khác vi phạm an toàn mạng", "C. Gửi email cảnh báo hàng loạt", "D. Chia sẻ lại các tin cảnh báo chưa kiểm chứng"], answer: "A. Đăng video 30–60 giây hoặc thông điệp an toàn số kèm hashtag" },
+                    { type: 'mcq', question: "Câu 5. Vì sao cần “kiểm chứng nguồn tin trước khi chia sẻ”?", options: ["A. Vì mạng xã hội bắt buộc phải làm vậy", "B. Vì đó là cách thể hiện trình độ học sinh", "C. Vì chia sẻ sai có thể khiến tin giả lan truyền và gây hại cho người khác", "D. Vì bạn bè sẽ đánh giá thấp nếu không làm vậy"], answer: "C. Vì chia sẻ sai có thể khiến tin giả lan truyền và gây hại cho người khác" }
                 ]
-                // ===== KẾT THÚC NỘI DUNG THAY THẾ =====
+                // ===== KẾT THÚC NỘI DUNG THAY THẾ TUẦN 4 =====
             },
         };
 
@@ -387,8 +313,8 @@
                 }
             });
             const percentage = totalScorable > 0 ? Math.round((score / totalScorable) * 100) : 100;
-            // Gửi 'week3' sang Google Apps Script
-            saveDataToGoogleSheets("week3", percentage); 
+            // Gửi 'week4' sang Google Apps Script
+            saveDataToGoogleSheets("week4", percentage); 
             setTimeout(() => showResult(percentage), 1500); 
         }
 
@@ -404,7 +330,7 @@
             const titleEl = document.getElementById('result-title');
             const cupContainer = document.getElementById('cup-container');
 
-            // Thay đổi điều kiện thành >= 60
+            // Điều kiện 3/5 câu = 60%
             if (percentage >= 60) { 
                 titleEl.textContent = "Xuất sắc!";
                 cupContainer.style.display = 'block';
@@ -462,7 +388,7 @@
             formData.append('Hoten', studentInfo.name);
             formData.append('Email', studentInfo.email);
             formData.append('Lop', studentInfo.class);
-            formData.append('Tuan', week); // Gửi mã tuần ('week2')
+            formData.append('Tuan', week); // Gửi mã tuần ('week4')
             formData.append('Diemso', score);
             try {
                  await fetch(scriptURL, { method: 'POST', body: formData });
@@ -529,5 +455,3 @@
     </script>
 </body>
 </html>
-
-
